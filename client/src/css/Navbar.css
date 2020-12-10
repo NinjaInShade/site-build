@@ -1,0 +1,54 @@
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 30px;
+}
+
+nav > div {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+nav img {
+  max-width: 40px;
+  width: 100%;
+  margin-right: 20px;
+}
+
+nav h1 {
+  font-weight: 400;
+  font-size: 30px;
+}
+
+nav button {
+  margin-left: 10px;
+}
+
+nav button a {
+  color: #10270e;
+}
+
+.login-btn {
+  border: none;
+  outline: none;
+  background: none;
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+.login-btn svg {
+  font-size: 2rem;
+  color: #fff;
+}
+
+.login-btn svg:hover {
+  color: rgb(228, 226, 226);
+}
+
+@media (max-width: 550px) {
+  nav h1 {
+    display: none;
+  }
+}

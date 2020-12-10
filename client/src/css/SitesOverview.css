@@ -1,0 +1,43 @@
+.sites-overview {
+  width: 100%;
+  min-height: calc(100vh - 72px);
+  background: #f9fafc;
+}
+
+.sites-overview h3,
+.sites-overview h2 {
+  font-weight: normal;
+}
+
+.sites-overview h3 {
+  color: #828797;
+  font-size: 1.2rem;
+}
+
+.sites-overview h2 {
+  color: #324065;
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+}
+
+.sites-overview-cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+}
+
+.sites-overview-cards-container .site-card {
+  cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  .sites-overview-cards-container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .sites-overview-cards-container .site-card {
+    width: 100%;
+    min-width: 0;
+    margin-right: 0;
+  }
+}

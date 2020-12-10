@@ -1,0 +1,21 @@
+* {
+  font-family: "lato", sans-serif;
+  margin: 0;
+  padding: 0;
+  outline: none;
+  list-style: none;
+  text-decoration: none;
+  border: none;
+  box-sizing: border-box;
+}
+
+body {
+  background: rgb(33, 43, 69);
+  background: linear-gradient(90deg, rgba(33, 43, 69, 1) 0%, rgba(54, 50, 101, 1) 100%);
+  color: white;
+  min-height: 100vh;
+}
+
+html {
+  scroll-behavior: smooth;
+}

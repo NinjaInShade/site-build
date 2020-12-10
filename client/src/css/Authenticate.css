@@ -1,0 +1,9 @@
+.authenticate {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  background: #5c6e93;
+  max-width: none !important;
+}

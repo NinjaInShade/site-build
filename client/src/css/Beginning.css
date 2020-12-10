@@ -1,0 +1,93 @@
+.beginning-section {
+  padding: 30px 30px 80px 30px;
+}
+
+.beginning-section-container {
+  display: flex;
+}
+
+.beginning-section-container > div:first-child button {
+  width: 350px;
+}
+
+.beginning-section > p {
+  color: #99aad8;
+  margin-bottom: 60px;
+}
+
+.beginning-section-getting-started {
+  margin-bottom: 80px;
+}
+
+.beginning-section-getting-started h1 {
+  font-size: 2.4rem;
+  margin-bottom: 15px;
+}
+
+.beginning-section-getting-started p {
+  color: #99aad8;
+  font-size: 1.3rem;
+  max-width: 350px;
+}
+
+.beginning-section-save {
+  margin-bottom: 60px;
+}
+
+.beginning-section-save h2 {
+  font-size: 1.8rem;
+  margin-bottom: 12px;
+}
+
+.beginning-section-save p {
+  color: #99aad8;
+  font-size: 1.1rem;
+  max-width: 350px;
+}
+
+.beginning-section-container > div:first-child {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.beginning-section-container > div:last-child {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.beginning-btn-two {
+  display: none;
+}
+
+@media (max-width: 750px) {
+  .beginning-section {
+    padding-bottom: 70px;
+  }
+
+  .beginning-section-container {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .beginning-section-container > div:first-child,
+  .beginning-section-container > div:last-child {
+    width: 100%;
+  }
+
+  .beginning-btn-one {
+    display: none;
+  }
+
+  .beginning-btn-two {
+    width: 100%;
+    margin: 20px 0 0 8px;
+    display: initial;
+    min-width: 0;
+  }
+}

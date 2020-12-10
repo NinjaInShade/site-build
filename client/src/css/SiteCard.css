@@ -1,0 +1,49 @@
+.site-card {
+  min-width: 300px;
+  border-radius: 8px;
+  border: 1px solid #c4c4c4;
+}
+.site-card-top {
+  border-bottom: 1px solid #c4c4c4;
+  width: 100%;
+  position: relative;
+  padding: 10px 15px;
+  height: 75px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.site-card-top svg {
+  position: absolute;
+  bottom: -40%;
+  left: 20px;
+}
+
+.site-card-top p {
+  color: #6c757d;
+  font-size: 1.1rem;
+}
+
+.site-card-bottom {
+  padding: 10px 15px 15px 25px;
+  margin-top: 30px;
+}
+
+.site-card-bottom p {
+  color: #ced4da;
+  font-size: 1.1rem;
+  margin: 4px 0;
+}
+
+.site-card-bottom h2 {
+  color: #324065;
+  font-size: 1.5rem;
+  margin: 4px 0;
+}
+
+.site-card-bottom h3 {
+  color: #6c757d;
+  font-size: 1.2rem;
+  margin: 4px 0;
+}
