@@ -1,21 +1,21 @@
 // Libraries
-import { useState, useEffect } from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 // CSS
-import "./App.css";
+import './App.css';
 
 // Components
-import ProtectedRoute from "./other/ProtectedRoute";
+import ProtectedRoute from './other/ProtectedRoute';
 
 // Pages
-import SiteBuilder from "./pages/SiteBuilder";
-import Authenticate from "./pages/Authenticate";
-import ControlPanel from "./pages/ControlPanel";
-import UnmatchedRoute from "./pages/UnmatchedRoute";
+import SiteBuilder from './pages/SiteBuilder';
+import Authenticate from './pages/Authenticate';
+import ControlPanel from './pages/ControlPanel';
+import UnmatchedRoute from './pages/UnmatchedRoute';
 
 // Context
-import { AuthContext } from "./other/AuthContext";
+import { AuthContext } from './other/AuthContext';
 
 // userData format:
 // userData = {
@@ -39,8 +39,8 @@ import { AuthContext } from "./other/AuthContext";
 // TODO: When a sites progress is saved( so more/less boxes are checked ) then recalculate and update the progress % in db
 
 function App() {
-  const existing_token = JSON.parse(localStorage.getItem("token"));
-  const existing_user = JSON.parse(localStorage.getItem("user"));
+  const existing_token = JSON.parse(localStorage.getItem('token')) || null;
+  const existing_user = JSON.parse(localStorage.getItem('user')) || null;
   const initial_token_state = { token: undefined, expiry: undefined, date_created: undefined };
   const initial_user_state = { id: undefined, username: undefined, email: undefined };
   // Context
@@ -53,7 +53,7 @@ function App() {
   function setToken(token) {
     setAuthToken(token);
     // Set token in localstorage. (string + expiry date + date created)
-    localStorage.setItem("token", JSON.stringify(token));
+    localStorage.setItem('token', JSON.stringify(token));
   }
 
   // function logout() {
@@ -67,13 +67,13 @@ function App() {
   function logout() {
     setAuthToken(initial_token_state);
     setUserData(initial_user_state);
-    localStorage.setItem("token", JSON.stringify(initial_token_state));
-    localStorage.setItem("user", JSON.stringify(initial_user_state));
+    localStorage.setItem('token', JSON.stringify(initial_token_state));
+    localStorage.setItem('user', JSON.stringify(initial_user_state));
   }
 
   function setData(user) {
     // Set user state
-    localStorage.setItem("user", JSON.stringify(user));
+    localStorage.setItem('user', JSON.stringify(user));
     setUserData({
       id: user.id,
       username: user.username,
@@ -99,13 +99,13 @@ function App() {
       <Router>
         <Switch>
           {/* Main homepage */}
-          <Route path="/" exact>
+          <Route path='/' exact>
             <SiteBuilder setSignupData={setSignupData} />
           </Route>
           {/* Authenticate page */}
-          <Route path="/authenticate" exact component={Authenticate} signupData={signupData} />
+          <Route path='/authenticate' exact component={Authenticate} signupData={signupData} />
           {/* Main control panel for authed users */}
-          <ProtectedRoute path="/controlpanel/:userid" component={ControlPanel} />
+          <ProtectedRoute path='/controlpanel/:userid' component={ControlPanel} />
           {/* 404 Route */}
           <Route component={UnmatchedRoute} />
         </Switch>

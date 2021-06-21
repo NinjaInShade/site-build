@@ -1,11 +1,11 @@
 footer {
   max-width: none !important;
   margin: 0 !important;
-  padding: 50px 30px;
   width: 100%;
 }
 
 footer .footer-container {
+  padding: 50px 30px;
   max-width: 1250px;
   margin: auto;
   display: flex;
@@ -63,7 +63,7 @@ footer p {
 }
 
 @media (max-width: 400px) {
-  footer {
+  .footer-container {
     padding: 10px 30px;
   }
 
