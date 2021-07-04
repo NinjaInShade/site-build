@@ -2,7 +2,7 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 25px 30px;
+  padding: 30px;
 }
 
 nav > div {
@@ -12,30 +12,26 @@ nav > div {
 }
 
 nav img {
-  max-width: 40px;
+  max-width: 35px;
   width: 100%;
-  margin-right: 20px;
+  margin-right: 15px;
 }
 
-nav h1 {
-  font-weight: 400;
-  font-size: 30px;
+nav strong {
+  font-size: var(--strong);
+  font-weight: 500;
 }
 
 nav button {
   margin-left: 10px;
 }
 
-nav button a {
-  color: #10270e;
-}
-
 .login-btn {
   border: none;
   outline: none;
   background: none;
-  margin-left: 20px;
   cursor: pointer;
+  margin-left: 20px;
 }
 
 .login-btn svg {
@@ -47,8 +43,15 @@ nav button a {
   color: rgb(228, 226, 226);
 }
 
+@media (max-width: 1150px) {
+  nav img {
+    max-width: 30px;
+    margin-right: 12px;
+  }
+}
+
 @media (max-width: 550px) {
-  nav h1 {
+  nav strong {
     display: none;
   }
 }

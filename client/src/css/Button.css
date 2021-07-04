@@ -6,6 +6,10 @@
   padding: 10px 15px;
 }
 
+.btn * {
+  color: #000;
+}
+
 .btn:hover {
   background: var(--green-gradient-hover);
 }

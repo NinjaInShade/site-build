@@ -24,6 +24,8 @@ body {
 
   --btn: 18px;
   --btn-large: 22px;
+
+  --strong: 32px;
 }
 
 button {
@@ -34,5 +36,7 @@ button {
   :root {
     --btn: 16px;
     --btn-large: 20px;
+
+    --strong: 28px;
   }
 }
