@@ -1,26 +1,17 @@
 .btn {
+  color: #000;
+  background: var(--green-gradient);
+  font-size: var(--btn);
+  font-weight: 600;
   padding: 10px 15px;
-  font-size: 1.1rem;
-  font-weight: bold;
-  cursor: pointer;
-  color: #10270e;
-  background: rgb(0, 206, 175);
-  background: linear-gradient(121deg, rgba(0, 206, 175, 1) 0%, rgba(0, 206, 132, 1) 100%);
-  background-position: center;
-  transition: background 0.8s;
 }
 
 .btn:hover {
-  background: rgb(2, 198, 168);
-  background: linear-gradient(121deg, rgba(2, 198, 168, 1) 0%, rgba(2, 193, 124, 1) 100%);
-}
-
-.btn-rounded {
-  border-radius: 20px;
+  background: var(--green-gradient-hover);
 }
 
 .btn-larger {
+  font-size: var(--btn-large);
   padding: 15px 20px;
-  font-size: 1.3rem;
-  min-width: 270px;
+  min-width: 260px;
 }
