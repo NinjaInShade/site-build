@@ -26,6 +26,18 @@ body {
   --btn-large: 22px;
 
   --strong: 32px;
+
+  /* REDESIGN VARS: */
+  --primary-dark: #066044;
+  --primary: #099268;
+  --primary-light: #0cc089;
+  --primary-lightest: #cee9e1;
+
+  --h1: 60px;
+  --h2: 48px;
+  --h3: 36px;
+
+  --p: 18px;
 }
 
 button {
