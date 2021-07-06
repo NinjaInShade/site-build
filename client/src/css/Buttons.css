@@ -25,3 +25,9 @@
   background: var(--primary);
   color: var(--light);
 }
+
+/* For svgs inside button, also need to set default fill on the svg */
+.btn-secondary:hover * {
+  transition: all 0.3s ease-in-out;
+  fill: var(--light);
+}
