@@ -1,0 +1,57 @@
+.home-header {
+  padding: 100px 30px;
+}
+
+.home-header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  max-width: var(--max-width);
+}
+
+.home-header-img {
+  margin-left: 100px;
+}
+
+.home-header-title {
+  font-size: var(--h1);
+  color: var(--dark);
+  max-width: 580px;
+}
+
+.home-header-title span {
+  position: relative;
+  color: var(--primary);
+}
+
+.home-header-title span::before {
+  position: absolute;
+  content: '';
+  background-image: url('../resources/underline.png');
+  width: 100%;
+  height: 16px;
+  z-index: -1;
+  bottom: 2px;
+  left: 0;
+}
+
+.home-header-lead {
+  font-size: var(--p);
+  color: var(--dark);
+  margin: 20px auto 35px auto;
+  max-width: 600px;
+}
+
+.home-header-lead span {
+  font-weight: 700;
+}
+
+.home-header .btn {
+  width: fit-content;
+  padding: 10px 40px;
+}
+
+.home-header .btn span {
+  color: var(--primary-lightest);
+}

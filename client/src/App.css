@@ -59,6 +59,7 @@ em,
 strong,
 small {
   line-height: 120%;
+  font-weight: 500;
 }
 
 @media (max-width: 1150px) {
