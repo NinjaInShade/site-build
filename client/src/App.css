@@ -1,5 +1,5 @@
 * {
-  font-family: 'lato', sans-serif;
+  font-family: 'Manrope', sans-serif;
   margin: 0;
   padding: 0;
   outline: none;
@@ -10,7 +10,7 @@
 }
 
 body {
-  background: linear-gradient(90deg, rgba(33, 43, 69, 1) 0%, rgba(54, 50, 101, 1) 100%);
+  /* background: linear-gradient(90deg, rgba(33, 43, 69, 1) 0%, rgba(54, 50, 101, 1) 100%); */
   /* background: rgb(33, 43, 69); */
   color: white;
   min-height: 100vh;
@@ -25,9 +25,12 @@ body {
   --btn: 18px;
   --btn-large: 22px;
 
-  --strong: 32px;
-
   /* REDESIGN VARS: */
+  --max-width: 1200px;
+
+  --dark: #000;
+  --light: #fff;
+
   --primary-dark: #066044;
   --primary: #099268;
   --primary-light: #0cc089;
@@ -37,6 +40,7 @@ body {
   --h2: 48px;
   --h3: 36px;
 
+  --strong: 24px;
   --p: 18px;
 }
 
@@ -44,11 +48,34 @@ button {
   cursor: pointer;
 }
 
+h1,
+h2,
+h3 {
+  line-height: 108%;
+}
+
+p,
+em,
+strong,
+small {
+  line-height: 120%;
+}
+
 @media (max-width: 1150px) {
   :root {
-    --btn: 16px;
-    --btn-large: 20px;
+    --h1: 48px;
+    --h2: 36px;
+    --h3: 26px;
 
-    --strong: 28px;
+    --strong: 22px;
+    --p: 16px;
+  }
+}
+
+@media (max-width: 500px) {
+  :root {
+    --h1: 36px;
+    --h2: 26px;
+    --h3: 22px;
   }
 }

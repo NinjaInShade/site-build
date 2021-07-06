@@ -31,6 +31,8 @@ import { AuthContext } from './other/AuthContext';
 //   }]
 // }
 
+// TODO: Make navbar responsive with a sidebar menu
+
 // TODO: Code control panel - sidebar component & project card component
 // TODO: control panel should load sites data into state on component mount ( useEffect hook )
 

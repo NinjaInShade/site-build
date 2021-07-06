@@ -1,0 +1,27 @@
+.btn {
+  display: block;
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+  font-size: var(--p);
+  font-weight: 700;
+  padding: 10px 20px;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: var(--light);
+}
+
+.btn-secondary {
+  background: var(--primary-lightest);
+  color: var(--primary);
+}
+
+.btn-primary:hover {
+  background: var(--primary-dark);
+}
+
+.btn-secondary:hover {
+  background: var(--primary);
+  color: var(--light);
+}
