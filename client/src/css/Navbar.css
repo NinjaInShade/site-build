@@ -50,3 +50,13 @@
     max-width: 34px;
   }
 }
+
+@media (max-width: 550px) {
+  .navbar .btn {
+    display: none;
+  }
+
+  .navbar-links {
+    grid-template-columns: 1fr;
+  }
+}
