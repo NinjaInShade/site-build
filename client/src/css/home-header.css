@@ -11,6 +11,8 @@
 }
 
 .home-header-img {
+  height: auto;
+  max-width: 100%;
   margin-left: 100px;
 }
 
@@ -54,4 +56,23 @@
 
 .home-header .btn span {
   color: var(--primary-lightest);
+}
+
+@media (max-width: 950px) {
+  .home-header-container {
+    flex-direction: column;
+  }
+
+  .home-header-img {
+    margin: 75px 0 0 0;
+  }
+
+  .home-header-title,
+  .home-header-lead {
+    text-align: center;
+  }
+
+  .home-header .btn {
+    margin: 0 auto;
+  }
 }
