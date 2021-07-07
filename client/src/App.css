@@ -31,7 +31,6 @@ body {
   --h2: 48px;
   --h3: 36px;
 
-  --em: 26px;
   --strong: 24px;
   --p: 18px;
 }
@@ -60,7 +59,6 @@ small {
     --h2: 36px;
     --h3: 26px;
 
-    --em: 24px;
     --strong: 22px;
     --p: 16px;
   }
