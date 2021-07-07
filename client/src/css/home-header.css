@@ -76,3 +76,9 @@
     margin: 0 auto;
   }
 }
+
+@media (max-width: 550px) {
+  .home-header {
+    padding: 50px 30px;
+  }
+}

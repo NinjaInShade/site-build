@@ -11,7 +11,7 @@ import Illustration from '../resources/header illustration.png';
 import { useAuth } from '../other/AuthContext';
 import { Redirect } from 'react-router-dom';
 
-import '../css/home-header.css';
+import '../css/Home-header.css';
 import '../css/Buttons.css';
 
 export default function Home({ setSignupData }) {
