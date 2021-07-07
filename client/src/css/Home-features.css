@@ -1,0 +1,33 @@
+.home-features {
+  background: var(--primary-dark);
+  padding: 100px 30px;
+}
+
+.home-features-container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.home-features-title {
+  text-align: center;
+  margin: 0 auto 150px auto;
+  font-size: var(--h2);
+  color: var(--light);
+  max-width: 560px;
+}
+
+.home-features-title span {
+  color: var(--primary-light);
+}
+
+.home-features-list {
+  display: grid;
+  align-content: stretch;
+  grid-template-columns: repeat(4, auto);
+}
+
+@media (max-width: 550px) {
+  .home-features {
+    padding: 50px 30px;
+  }
+}
