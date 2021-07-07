@@ -26,6 +26,25 @@
   grid-template-columns: repeat(4, auto);
 }
 
+@media (max-width: 1150px) {
+  .home-features-list {
+    grid-template-columns: repeat(2, auto);
+    justify-content: center;
+    column-gap: 75px;
+    row-gap: 100px;
+  }
+
+  .home-features-title {
+    margin-bottom: 100px;
+  }
+}
+
+@media (max-width: 700px) {
+  .home-features-list {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media (max-width: 550px) {
   .home-features {
     padding: 50px 30px;
