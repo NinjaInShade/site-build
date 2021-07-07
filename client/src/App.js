@@ -9,7 +9,7 @@ import './App.css';
 import ProtectedRoute from './other/ProtectedRoute';
 
 // Pages
-import SiteBuilder from './pages/SiteBuilder';
+import Home from './pages/Home';
 import Authenticate from './pages/Authenticate';
 import ControlPanel from './pages/ControlPanel';
 import UnmatchedRoute from './pages/UnmatchedRoute';
@@ -102,12 +102,15 @@ function App() {
         <Switch>
           {/* Main homepage */}
           <Route path='/' exact>
-            <SiteBuilder setSignupData={setSignupData} />
+            <Home setSignupData={setSignupData} />
           </Route>
+
           {/* Authenticate page */}
           <Route path='/authenticate' exact component={Authenticate} signupData={signupData} />
+
           {/* Main control panel for authed users */}
           <ProtectedRoute path='/controlpanel/:userid' component={ControlPanel} />
+
           {/* 404 Route */}
           <Route component={UnmatchedRoute} />
         </Switch>

@@ -14,7 +14,7 @@ import { Redirect } from 'react-router-dom';
 import '../css/home-header.css';
 import '../css/Buttons.css';
 
-export default function SiteBuilder({ setSignupData }) {
+export default function Home({ setSignupData }) {
   const { userData, authToken } = useAuth();
 
   if (authToken.token) {
