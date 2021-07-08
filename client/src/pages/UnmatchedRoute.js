@@ -1,8 +1,4 @@
-// Libraries
-import React from "react";
-
-// CSS
-import "../css/UnmatchedRoute.css";
+import React from 'react';
 
 export default function UnmatchedRoute() {
   return (

@@ -13,10 +13,10 @@ export default function Navbar() {
   return (
     <nav className='navbar'>
       <div className='navbar-container'>
-        <div className='navbar-brand-container'>
+        <a className='navbar-brand-container' href='/'>
           <img src={BrandLogo} alt='Brand logo' className='navbar-logo' />
           <strong className='navbar-brand'>SiteBuild</strong>
-        </div>
+        </a>
         <div className='navbar-links'>
           <a href='/#start' className='btn btn-secondary'>
             Get started
