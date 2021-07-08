@@ -12,7 +12,7 @@ import ProtectedRoute from './other/ProtectedRoute';
 import Home from './pages/Home';
 import Authenticate from './pages/Authenticate';
 import ControlPanel from './pages/ControlPanel';
-import UnmatchedRoute from './pages/UnmatchedRoute';
+import Unmatched from './pages/Unmatched';
 
 // Context
 import { AuthContext } from './other/AuthContext';
@@ -112,7 +112,7 @@ function App() {
           <ProtectedRoute path='/controlpanel/:userid' component={ControlPanel} />
 
           {/* 404 Route */}
-          <Route component={UnmatchedRoute} />
+          <Route component={Unmatched} />
         </Switch>
       </Router>
     </AuthContext.Provider>
