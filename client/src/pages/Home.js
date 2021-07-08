@@ -3,11 +3,13 @@ import React from 'react';
 import Navbar from '../components/layout/Navbar';
 import FeatureCard from '../components/general/FeatureCard';
 import Illustration from '../resources/header illustration.png';
+import Hexagon from '../resources/hexagon overlay.svg';
 import { useAuth } from '../other/AuthContext';
 import { Redirect } from 'react-router-dom';
 
 import '../css/Home-header.css';
 import '../css/Home-features.css';
+import '../css/Home-start.css';
 import '../css/Buttons.css';
 
 export default function Home({ setSignupData }) {
@@ -96,6 +98,25 @@ export default function Home({ setSignupData }) {
                 </svg>
               }
             />
+          </div>
+        </div>
+      </section>
+
+      <section className='home-start'>
+        <div className='home-start-container'>
+          <div className='home-start-box'>
+            <img src={Hexagon} className='home-start-box-img' alt='Decoration hexagon overlay' />
+          </div>
+          <div className='home-start-content'>
+            <h3 className='home-start-title'>
+              Get started for <span>free</span>
+            </h3>
+            <p className='home-start-lead'>Answer 3 simple questions and begin to perfect your site!</p>
+            <hr className='home-start-seperator' />
+            <form>
+              <p className='home-start-step'>Step 1/3</p>
+              <h3 className='home-start-form-title'>Let's start with the name of your website/brand</h3>
+            </form>
           </div>
         </div>
       </section>
