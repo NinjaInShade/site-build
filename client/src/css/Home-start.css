@@ -12,7 +12,6 @@
 
 .home-start-box {
   background: var(--primary-lightest);
-  min-width: 500px;
   min-height: 515px;
 }
 
@@ -76,8 +75,27 @@
   width: 100%;
 }
 
+@media (max-width: 1150px) {
+  .home-start-container {
+    flex-direction: column;
+  }
+
+  .home-start-box {
+    min-height: 0;
+    height: 20vh;
+  }
+
+  .home-start-content {
+    margin: 50px 0 0 0;
+  }
+}
+
 @media (max-width: 550px) {
   .home-start {
     padding: 50px 30px;
+  }
+
+  .home-start-buttons > *:first-child {
+    margin-right: 15px;
   }
 }

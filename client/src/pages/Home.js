@@ -25,38 +25,35 @@ export default function Home({ setSignupData }) {
   const [typeOfSite, setTypeOfSite] = useState('');
   const [intendedAudience, setIntendedAudience] = useState('');
 
-  const [ageGroup, setAgeGroup] = useState('');
-
   const [errors, setErrors] = useState({
     sitename: [],
     typeofsite: [],
     intendedaudience: [],
-    agegroup: [],
   });
 
   if (authToken.token) {
     return <Redirect to={`/controlpanel/${userData.id}`} />;
   }
 
-  function decreaseStep(e) {
+  function changeStep(e, type) {
     e.preventDefault();
 
-    setFormStep((prevState) => prevState - 1);
-  }
+    if (type === '+') {
+      setFormStep((prevState) => prevState + 1);
+    } else {
+      setFormStep((prevState) => prevState - 1);
+    }
 
-  function increaseStep(e) {
-    e.preventDefault();
-
-    setFormStep((prevState) => prevState + 1);
+    formHandler();
   }
 
   function formHandler() {
     let errors = false;
-    let temp_errors = { sitename: [], typeofsite: [], intendedaudience: [], agegroup: [] };
+    let temp_errors = { sitename: [], typeofsite: [], intendedaudience: [] };
 
-    // if (!min_length(siteName, 1)) {
-    //   temp_errors.sitename.push("Don't leave empty.");
-    // }
+    if (!min_length(siteName, 1)) {
+      temp_errors.sitename.push("Don't leave empty.");
+    }
 
     // if (!min_length(typeOfSite, 1)) {
     //   temp_errors.typeofsite.push("Don't leave empty");
@@ -64,30 +61,25 @@ export default function Home({ setSignupData }) {
 
     // if (!min_length(intendedAudience, 1)) {
     //   temp_errors.intendedaudience.push("Don't leave empty");
-    // } else {
-    //   if (intendedAudience === 'AgeGroup' && !min_length(ageGroup, 1)) {
-    //     temp_errors.agegroup.push('Specify an age group');
-    //   }
     // }
 
-    // setErrors(temp_errors);
+    setErrors(temp_errors);
 
-    // Object.values(temp_errors).forEach((error) => {
-    //   if (error.length !== 0) {
-    //     errors = true;
-    //   }
-    // });
+    Object.values(temp_errors).forEach((error) => {
+      if (error.length !== 0) {
+        errors = true;
+      }
+    });
 
-    // if (!errors) {
-    //   setSignupData({
-    //     sitename: siteName,
-    //     typeofsite: typeOfSite,
-    //     intendedaudience: intendedAudience,
-    //     agegroup: ageGroup,
-    //   });
+    if (!errors) {
+      // setSignupData({
+      //   sitename: siteName,
+      //   typeofsite: typeOfSite,
+      //   intendedaudience: intendedAudience,
+      // });
 
-    //   history.push(`/authenticate`);
-    // }
+      console.log('VALID');
+    }
   }
 
   return (
@@ -197,20 +189,16 @@ export default function Home({ setSignupData }) {
               />
               <div className='home-start-buttons'>
                 {formStep !== 1 && (
-                  <button className='btn btn-secondary' onClick={(e) => decreaseStep(e)}>
+                  <button className='btn btn-secondary' onClick={(e) => changeStep(e, '-')}>
                     Previous step
                   </button>
                 )}
                 {formStep !== 3 && (
-                  <button className='btn btn-primary' onClick={(e) => increaseStep(e)}>
+                  <button className='btn btn-primary' onClick={(e) => changeStep(e, '+')}>
                     Next step
                   </button>
                 )}
-                {formStep === 3 && (
-                  <button className='btn btn-primary' onClick={(e) => increaseStep(e)}>
-                    Complete setup
-                  </button>
-                )}
+                {formStep === 3 && <button className='btn btn-primary'>Complete setup</button>}
               </div>
             </form>
           </div>
