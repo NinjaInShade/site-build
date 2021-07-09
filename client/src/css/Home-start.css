@@ -60,15 +60,8 @@
 
 .home-start-buttons {
   display: flex;
+  gap: 30px;
   margin-top: 30px;
-}
-
-.home-start-buttons > *:first-child {
-  margin-right: 30px;
-}
-
-.home-start-buttons > *:last-child {
-  margin-right: 0;
 }
 
 .home-start button {
@@ -95,7 +88,7 @@
     padding: 50px 30px;
   }
 
-  .home-start-buttons > *:first-child {
-    margin-right: 15px;
+  .home-start-buttons {
+    gap: 15px;
   }
 }
