@@ -5,6 +5,8 @@ import FeatureCard from '../components/general/FeatureCard';
 import Input from '../components/general/Input';
 import Illustration from '../resources/header illustration.png';
 import Hexagon from '../resources/hexagon overlay.svg';
+import { min_length } from '../other/Algorithms';
+import { types_of_site_options, intended_audience_options, age_group_options } from '../other/BeginningQuestions';
 import { useAuth } from '../other/AuthContext';
 import { Redirect } from 'react-router-dom';
 
@@ -16,10 +18,76 @@ import '../css/Buttons.css';
 
 export default function Home({ setSignupData }) {
   const { userData, authToken } = useAuth();
-  const [value, setValue] = useState('');
+
+  const [formStep, setFormStep] = useState(1);
+
+  const [siteName, setSiteName] = useState('');
+  const [typeOfSite, setTypeOfSite] = useState('');
+  const [intendedAudience, setIntendedAudience] = useState('');
+
+  const [ageGroup, setAgeGroup] = useState('');
+
+  const [errors, setErrors] = useState({
+    sitename: [],
+    typeofsite: [],
+    intendedaudience: [],
+    agegroup: [],
+  });
 
   if (authToken.token) {
     return <Redirect to={`/controlpanel/${userData.id}`} />;
+  }
+
+  function decreaseStep(e) {
+    e.preventDefault();
+
+    setFormStep((prevState) => prevState - 1);
+  }
+
+  function increaseStep(e) {
+    e.preventDefault();
+
+    setFormStep((prevState) => prevState + 1);
+  }
+
+  function formHandler() {
+    let errors = false;
+    let temp_errors = { sitename: [], typeofsite: [], intendedaudience: [], agegroup: [] };
+
+    // if (!min_length(siteName, 1)) {
+    //   temp_errors.sitename.push("Don't leave empty.");
+    // }
+
+    // if (!min_length(typeOfSite, 1)) {
+    //   temp_errors.typeofsite.push("Don't leave empty");
+    // }
+
+    // if (!min_length(intendedAudience, 1)) {
+    //   temp_errors.intendedaudience.push("Don't leave empty");
+    // } else {
+    //   if (intendedAudience === 'AgeGroup' && !min_length(ageGroup, 1)) {
+    //     temp_errors.agegroup.push('Specify an age group');
+    //   }
+    // }
+
+    // setErrors(temp_errors);
+
+    // Object.values(temp_errors).forEach((error) => {
+    //   if (error.length !== 0) {
+    //     errors = true;
+    //   }
+    // });
+
+    // if (!errors) {
+    //   setSignupData({
+    //     sitename: siteName,
+    //     typeofsite: typeOfSite,
+    //     intendedaudience: intendedAudience,
+    //     agegroup: ageGroup,
+    //   });
+
+    //   history.push(`/authenticate`);
+    // }
   }
 
   return (
@@ -112,21 +180,38 @@ export default function Home({ setSignupData }) {
           </div>
           <div className='home-start-content'>
             <h3 className='home-start-title'>
-              Get started for <span>free</span>
+              Get started for <span>free!</span>
             </h3>
             <p className='home-start-lead'>Answer 3 simple questions and begin to perfect your site!</p>
             <hr className='home-start-seperator' />
             <form>
-              <p className='home-start-step'>Step 1/3</p>
-              <h3 className='home-start-form-title'>Let's start with the name of your website/brand</h3>
+              <p className='home-start-step'>Step {formStep}/3</p>
+              <h3 className='home-start-form-title'>Let's start with the name of your brand/website</h3>
               <Input
-                label='Enter your name'
-                placeholder='John Doe...'
-                value={value}
-                onChange={setValue}
+                label='Enter your brand/website name'
+                placeholder='Brand/Website name...'
+                value={siteName}
+                onChange={setSiteName}
                 maxLength='75'
+                errors={errors.sitename}
               />
-              <button className='btn btn-primary'>Next step</button>
+              <div className='home-start-buttons'>
+                {formStep !== 1 && (
+                  <button className='btn btn-secondary' onClick={(e) => decreaseStep(e)}>
+                    Previous step
+                  </button>
+                )}
+                {formStep !== 3 && (
+                  <button className='btn btn-primary' onClick={(e) => increaseStep(e)}>
+                    Next step
+                  </button>
+                )}
+                {formStep === 3 && (
+                  <button className='btn btn-primary' onClick={(e) => increaseStep(e)}>
+                    Complete setup
+                  </button>
+                )}
+              </div>
             </form>
           </div>
         </div>
