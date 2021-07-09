@@ -1,7 +1,8 @@
 // Libraries
-import React from 'react';
+import React, { useState } from 'react';
 import Navbar from '../components/layout/Navbar';
 import FeatureCard from '../components/general/FeatureCard';
+import Input from '../components/general/Input';
 import Illustration from '../resources/header illustration.png';
 import Hexagon from '../resources/hexagon overlay.svg';
 import { useAuth } from '../other/AuthContext';
@@ -14,6 +15,7 @@ import '../css/Buttons.css';
 
 export default function Home({ setSignupData }) {
   const { userData, authToken } = useAuth();
+  const [value, setValue] = useState('');
 
   if (authToken.token) {
     return <Redirect to={`/controlpanel/${userData.id}`} />;
@@ -102,7 +104,7 @@ export default function Home({ setSignupData }) {
         </div>
       </section>
 
-      <section className='home-start'>
+      <section className='home-start' id='start'>
         <div className='home-start-container'>
           <div className='home-start-box'>
             <img src={Hexagon} className='home-start-box-img' alt='Decoration hexagon overlay' />
@@ -116,6 +118,14 @@ export default function Home({ setSignupData }) {
             <form>
               <p className='home-start-step'>Step 1/3</p>
               <h3 className='home-start-form-title'>Let's start with the name of your website/brand</h3>
+              <Input
+                label='Enter your name'
+                placeholder='John Doe...'
+                value={value}
+                onChange={setValue}
+                maxLength='75'
+              />
+              <button className='btn btn-primary'>Next step</button>
             </form>
           </div>
         </div>

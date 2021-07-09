@@ -1,12 +1,12 @@
 // Libraries
-import React from "react";
+import React from 'react';
 
 // CSS
-import "../../css/InputBox.css";
+import '../../css/Input.css';
 
-export default function InputBox({ label, type = "text", placeholder, value, onChange, errors, maxLength, rounded = true }) {
+export default function InputBox({ label, type = 'text', placeholder, value, onChange, errors, maxLength }) {
   return (
-    <div className="inputbox-container">
+    <div className='inputbox-container'>
       <label>{label}</label>
       <input
         type={type}
@@ -16,7 +16,6 @@ export default function InputBox({ label, type = "text", placeholder, value, onC
         }}
         value={value}
         maxLength={maxLength}
-        style={rounded ? { borderRadius: "15px" } : {}}
       />
       {errors &&
         errors.map((error) => {

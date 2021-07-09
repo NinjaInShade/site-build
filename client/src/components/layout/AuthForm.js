@@ -1,25 +1,25 @@
 // Libraries
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 
 // CSS
-import "../../css/AuthForm.css";
+import '../../css/AuthForm.css';
 
 // Components
-import InputBox from "../general/InputBox";
-import Button from "../general/Button";
+import InputBox from '../general/Input';
+import Button from '../general/Button';
 
 // Images
-import Logo from "../../resources/BrandLogo.svg";
+import Logo from '../../resources/BrandLogo.svg';
 
 // Other
-import { min_length, is_email } from "../../other/Algorithms";
+import { min_length, is_email } from '../../other/Algorithms';
 
 export default function AuthForm({ signup, login, auth_errors }) {
-  const [mode, setMode] = useState("login");
+  const [mode, setMode] = useState('login');
 
-  const [email, setEmail] = useState("");
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState('');
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
 
   const [errors, setErrors] = useState({
     email: [],
@@ -28,9 +28,9 @@ export default function AuthForm({ signup, login, auth_errors }) {
   });
 
   useEffect(() => {
-    setEmail("");
-    setUsername("");
-    setPassword("");
+    setEmail('');
+    setUsername('');
+    setPassword('');
     setErrors({ email: [], username: [], password: [] });
   }, [mode]);
 
@@ -50,15 +50,15 @@ export default function AuthForm({ signup, login, auth_errors }) {
     }
 
     if (!is_email(email)) {
-      temp_errors.email.push("Type in a valid email.");
+      temp_errors.email.push('Type in a valid email.');
     }
 
-    if (!min_length(username, 1) && mode === "signup") {
+    if (!min_length(username, 1) && mode === 'signup') {
       temp_errors.username.push("Don't leave empty.");
     }
 
     if (!min_length(password, 8)) {
-      temp_errors.password.push("Minimum 8 characters");
+      temp_errors.password.push('Minimum 8 characters');
     }
 
     setErrors(temp_errors);
@@ -71,7 +71,7 @@ export default function AuthForm({ signup, login, auth_errors }) {
 
     // Once data is valid
     if (!is_errors) {
-      if (mode === "signup") {
+      if (mode === 'signup') {
         signup(username, email, password);
       } else {
         login(email, password);
@@ -85,25 +85,25 @@ export default function AuthForm({ signup, login, auth_errors }) {
   }
 
   return (
-    <form className="AuthForm">
-      <div className="AuthForm-header">
-        <img src={Logo} alt="Brand logo" />
+    <form className='AuthForm'>
+      <div className='AuthForm-header'>
+        <img src={Logo} alt='Brand logo' />
         <h2>Log in to manage and save progress</h2>
       </div>
       <div>
         <InputBox
-          label="Email"
-          type="email"
-          placeholder="Enter your email..."
+          label='Email'
+          type='email'
+          placeholder='Enter your email...'
           value={email}
           onChange={setEmail}
           errors={errors.email}
           rounded={false}
         />
-        {mode === "signup" && (
+        {mode === 'signup' && (
           <InputBox
-            label="Username"
-            placeholder="Enter your username..."
+            label='Username'
+            placeholder='Enter your username...'
             value={username}
             onChange={setUsername}
             errors={errors.username}
@@ -111,24 +111,24 @@ export default function AuthForm({ signup, login, auth_errors }) {
           />
         )}
         <InputBox
-          label="Password"
-          type="password"
-          placeholder="Enter your password..."
+          label='Password'
+          type='password'
+          placeholder='Enter your password...'
           value={password}
           onChange={setPassword}
           errors={errors.password}
           rounded={false}
         />
-        <Button larger onClick={(e) => authenticateHandler(e)} className="AuthForm-submit-btn">
-          {mode === "signup" ? "Sign up" : "Login"}
+        <Button larger onClick={(e) => authenticateHandler(e)} className='AuthForm-submit-btn'>
+          {mode === 'signup' ? 'Sign up' : 'Login'}
         </Button>
-        {mode === "signup" ? (
+        {mode === 'signup' ? (
           <p>
-            Already have an account? <span onClick={(e) => switchMode(e, "login")}>Sign in</span>
+            Already have an account? <span onClick={(e) => switchMode(e, 'login')}>Sign in</span>
           </p>
         ) : (
           <p>
-            Don't have an account? <span onClick={(e) => switchMode(e, "signup")}>Sign up</span>
+            Don't have an account? <span onClick={(e) => switchMode(e, 'signup')}>Sign up</span>
           </p>
         )}
       </div>

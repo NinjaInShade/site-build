@@ -3,27 +3,27 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  margin: 10px 0;
   width: 100%;
 }
 
 .inputbox-container label {
-  color: #fff;
-  font-size: 1.6rem;
-  margin: 0 0 10px 8px;
+  color: var(--dark);
+  font-size: var(--p);
+  margin-bottom: 12px;
 }
 
 .inputbox-container input {
-  padding: 15px;
   outline: none;
-  background: #212b45;
-  color: #99aad8;
+  background: var(--primary-lightest);
+  color: var(--dark);
+  font-size: var(--p);
+  border: 1px solid var(--primary);
+  padding: 9px;
   width: 100%;
-  font-size: 1.2rem;
 }
 
 .inputbox-container input::placeholder {
-  color: #5c6e93;
+  color: var(--primary-dark);
 }
 
 .inputbox-container p {

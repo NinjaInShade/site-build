@@ -59,6 +59,11 @@
   margin: 12px 0 50px 0;
 }
 
+.home-start button {
+  margin-top: 30px;
+  width: 100%;
+}
+
 @media (max-width: 550px) {
   .home-start {
     padding: 50px 30px;
