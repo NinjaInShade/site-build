@@ -36,24 +36,25 @@ export default function Home({ setSignupData }) {
     return <Redirect to={`/controlpanel/${userData.id}`} />;
   }
 
-  function changeStep(e, type) {
+  function decreaseStep(e) {
     e.preventDefault();
 
-    if (type === '+') {
-      setFormStep((prevState) => prevState + 1);
-    } else {
-      setFormStep((prevState) => prevState - 1);
-    }
-
-    formHandler();
+    setFormStep((prevState) => prevState - 1);
   }
 
-  function formHandler() {
+  function formHandler(e, type) {
+    e.preventDefault();
+
     let errors = false;
     let temp_errors = { sitename: [], typeofsite: [], intendedaudience: [] };
 
-    if (formStep === 1 && !min_length(siteName, 1)) {
-      temp_errors.sitename.push("Don't leave empty.");
+    if (formStep === 1) {
+      if (!min_length(siteName, 1)) {
+        temp_errors.sitename.push("Don't leave empty.");
+        return setErrors(temp_errors);
+      }
+
+      setFormStep((prevState) => prevState + 1);
     }
 
     // if (formStep === 2 && !min_length(typeOfSite, 1)) {
@@ -191,12 +192,12 @@ export default function Home({ setSignupData }) {
               />
               <div className='home-start-buttons'>
                 {formStep !== 1 && (
-                  <button className='btn btn-secondary' onClick={(e) => changeStep(e, '-')}>
+                  <button className='btn btn-secondary' onClick={(e) => decreaseStep(e)}>
                     Previous step
                   </button>
                 )}
                 {formStep !== 3 && (
-                  <button className='btn btn-primary' onClick={(e) => changeStep(e, '+')}>
+                  <button className='btn btn-primary' onClick={(e) => formHandler(e)}>
                     Next step
                   </button>
                 )}
