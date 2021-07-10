@@ -8,7 +8,7 @@ import Hexagon from '../resources/hexagon overlay.svg';
 import { min_length } from '../other/Algorithms';
 import { types_of_site_options, intended_audience_options, age_group_options } from '../other/BeginningQuestions';
 import { useAuth } from '../other/AuthContext';
-import { Redirect } from 'react-router-dom';
+import { Redirect, useHistory } from 'react-router-dom';
 
 import '../css/Home-header.css';
 import '../css/Home-features.css';
@@ -18,6 +18,7 @@ import '../css/Buttons.css';
 
 export default function Home({ setSignupData }) {
   const { userData, authToken } = useAuth();
+  const history = useHistory();
 
   const [formStep, setFormStep] = useState(1);
 
@@ -51,15 +52,15 @@ export default function Home({ setSignupData }) {
     let errors = false;
     let temp_errors = { sitename: [], typeofsite: [], intendedaudience: [] };
 
-    if (!min_length(siteName, 1)) {
+    if (formStep === 1 && !min_length(siteName, 1)) {
       temp_errors.sitename.push("Don't leave empty.");
     }
 
-    // if (!min_length(typeOfSite, 1)) {
+    // if (formStep === 2 && !min_length(typeOfSite, 1)) {
     //   temp_errors.typeofsite.push("Don't leave empty");
     // }
 
-    // if (!min_length(intendedAudience, 1)) {
+    // if (formStep === 3 && !min_length(intendedAudience, 1)) {
     //   temp_errors.intendedaudience.push("Don't leave empty");
     // }
 
@@ -71,14 +72,15 @@ export default function Home({ setSignupData }) {
       }
     });
 
-    if (!errors) {
+    if (!errors && formStep === 3) {
       // setSignupData({
       //   sitename: siteName,
       //   typeofsite: typeOfSite,
       //   intendedaudience: intendedAudience,
       // });
 
-      console.log('VALID');
+      console.log('Rasd');
+      // history.push(`/authenticate`);
     }
   }
 
