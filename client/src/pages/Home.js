@@ -84,14 +84,13 @@ export default function Home({ setSignupData }) {
     });
 
     if (!errors && formStep === 3) {
-      // setSignupData({
-      //   sitename: siteName,
-      //   typeofsite: typeOfSite,
-      //   intendedaudience: intendedAudience,
-      // });
+      setSignupData({
+        sitename: siteName,
+        typeofsite: typeOfSite,
+        intendedaudience: intendedAudience,
+      });
 
-      console.log('Rasd');
-      // history.push(`/authenticate`);
+      history.push(`/authenticate`);
     }
   }
 
