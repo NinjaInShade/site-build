@@ -198,8 +198,8 @@ export default function Home({ setSignupData }) {
               )}
               {formStep === 3 && <h3 className='home-start-form-title'>What is the website's intended audience?</h3>}
               <Input
-                label='Enter your brand/website name'
-                placeholder='Brand/Website name...'
+                label='Brand/Website name'
+                placeholder='Enter your brand/website name...'
                 value={siteName}
                 onChange={setSiteName}
                 maxLength='75'
@@ -207,18 +207,18 @@ export default function Home({ setSignupData }) {
                 className={formStep !== 1 && 'display-none'}
               />
               <Dropdown
-                label='Select type of website'
+                label='Type of site'
                 options={types_of_site_options}
-                heading='Type of site'
+                heading='Select type of website...'
                 callback={setTypeOfSite}
                 errors={errors.typeofsite}
                 AutoClose
                 className={formStep !== 2 && 'display-none'}
               />
               <Dropdown
-                label='Select intended audience'
+                label='Intended audience'
                 options={intended_audience_options}
-                heading='Intended audience'
+                heading='Select intended audience...'
                 callback={setIntendedAudience}
                 errors={errors.intendedaudience}
                 AutoClose

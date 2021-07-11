@@ -6,6 +6,7 @@ export const types_of_site_options = [
 ];
 
 export const intended_audience_options = [
-  { heading: 'Certain age group (Can select once clicked)', stateValue: 'AgeGroup' },
-  { heading: 'All types of people', stateValue: 'AllTypes' },
+  { heading: 'Adults', stateValue: 'Adults' },
+  { heading: 'Teenagers', stateValue: 'Teenagers' },
+  { heading: 'Children', stateValue: 'Children' },
 ];

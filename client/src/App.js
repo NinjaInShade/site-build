@@ -1,21 +1,12 @@
-// Libraries
 import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-
-// CSS
-import './App.css';
-
-// Components
 import ProtectedRoute from './other/ProtectedRoute';
-
-// Pages
 import Home from './pages/Home';
 import Authenticate from './pages/Authenticate';
 import ControlPanel from './pages/ControlPanel';
 import Unmatched from './pages/Unmatched';
-
-// Context
 import { AuthContext } from './other/AuthContext';
+import './App.css';
 
 // userData format:
 // userData = {
@@ -106,13 +97,19 @@ function App() {
           </Route>
 
           {/* Authenticate page */}
-          <Route path='/authenticate' exact component={Authenticate} signupData={signupData} />
+          <Route path='/authenticate' exact>
+            <Authenticate signupData={signupData} />
+          </Route>
 
           {/* Main control panel for authed users */}
-          <ProtectedRoute path='/controlpanel/:userid' component={ControlPanel} />
+          <ProtectedRoute path='/controlpanel/:userid'>
+            <ControlPanel />
+          </ProtectedRoute>
 
           {/* 404 Route */}
-          <Route component={Unmatched} />
+          <Route>
+            <Unmatched />
+          </Route>
         </Switch>
       </Router>
     </AuthContext.Provider>

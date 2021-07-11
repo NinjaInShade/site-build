@@ -19,6 +19,7 @@
 .dropdown-label {
   color: var(--dark);
   font-size: var(--p);
+  font-weight: 600;
   margin-bottom: 12px;
 }
 
@@ -36,6 +37,7 @@
 .dropdown-box p {
   color: var(--light);
   font-size: var(--p);
+  font-weight: 400;
 }
 
 .dropdown-box svg {
@@ -60,6 +62,10 @@
   background: var(--primary-lightest);
   color: var(--primary);
   padding: 10px 12px;
+}
+
+.dropdown-item p {
+  font-weight: 400;
 }
 
 .dropdown-item:hover,
