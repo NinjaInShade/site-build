@@ -68,6 +68,10 @@
   width: 100%;
 }
 
+.display-none {
+  display: none;
+}
+
 @media (max-width: 1150px) {
   .home-start-container {
     flex-direction: column;

@@ -1,12 +1,9 @@
-// Libraries
 import React from 'react';
-
-// CSS
 import '../../css/Input.css';
 
-export default function InputBox({ label, type = 'text', placeholder, value, onChange, errors, maxLength }) {
+export default function InputBox({ label, type = 'text', placeholder, value, onChange, errors, maxLength, className }) {
   return (
-    <div className='inputbox-container'>
+    <div className={`inputbox-container ${className && className}`}>
       <label>{label}</label>
       <input
         type={type}

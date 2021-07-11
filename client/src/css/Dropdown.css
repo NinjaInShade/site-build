@@ -1,7 +1,6 @@
 .dropdown-container {
   position: relative;
   width: 100%;
-  margin-bottom: 15px;
 }
 
 .dropdown-container div {
@@ -18,9 +17,9 @@
 }
 
 .dropdown-label {
-  color: #fff;
-  font-size: 1.6rem;
-  margin: 0 0 10px 8px;
+  color: var(--dark);
+  font-size: var(--p);
+  margin-bottom: 12px;
 }
 
 .dropdown-box {
@@ -28,15 +27,15 @@
   justify-content: space-between;
   align-items: center;
   padding: 10px 12px;
-  background: #212b45;
+  background: var(--primary);
   cursor: pointer;
   outline: none;
   width: 100%;
 }
 
 .dropdown-box p {
-  color: #fff;
-  font-size: 1.2rem;
+  color: var(--light);
+  font-size: var(--p);
 }
 
 .dropdown-box svg {
@@ -54,19 +53,22 @@
   transition: all 0.2s ease-in-out;
 }
 
-.dropdown-items li {
+.dropdown-item {
   /* z-index: 100; */
-  padding: 10px 12px;
   cursor: pointer;
-  background: #273352;
-  color: #99aad8;
+  transition: all 0.1s ease-in-out;
+  background: var(--primary-lightest);
+  color: var(--primary);
+  padding: 10px 12px;
 }
 
-.dropdown-items li:hover {
-  background: #212b45;
+.dropdown-item:hover,
+.dropdown-item-active {
+  background: var(--primary);
+  color: var(--light);
 }
 
 .dropdown-error {
-  margin: 0 0 8px 0;
+  margin: 8px 0;
   color: #a84632;
 }

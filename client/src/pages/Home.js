@@ -3,10 +3,11 @@ import React, { useState } from 'react';
 import Navbar from '../components/layout/Navbar';
 import FeatureCard from '../components/general/FeatureCard';
 import Input from '../components/general/Input';
+import Dropdown from '../components/general/Dropdown';
 import Illustration from '../resources/header illustration.png';
 import Hexagon from '../resources/hexagon overlay.svg';
 import { min_length } from '../other/Algorithms';
-import { types_of_site_options, intended_audience_options, age_group_options } from '../other/BeginningQuestions';
+import { types_of_site_options, intended_audience_options } from '../other/BeginningQuestions';
 import { useAuth } from '../other/AuthContext';
 import { Redirect, useHistory } from 'react-router-dom';
 
@@ -57,14 +58,23 @@ export default function Home({ setSignupData }) {
       setFormStep((prevState) => prevState + 1);
     }
 
-    // if (formStep === 2 && !min_length(typeOfSite, 1)) {
-    //   temp_errors.typeofsite.push("Don't leave empty");
-    // }
+    if (formStep === 2) {
+      if (!min_length(typeOfSite, 1)) {
+        temp_errors.typeofsite.push("Don't leave empty");
+        return setErrors(temp_errors);
+      }
 
-    // if (formStep === 3 && !min_length(intendedAudience, 1)) {
-    //   temp_errors.intendedaudience.push("Don't leave empty");
-    // }
+      setFormStep((prevState) => prevState + 1);
+    }
 
+    if (formStep === 3) {
+      if (!min_length(intendedAudience, 1)) {
+        temp_errors.intendedaudience.push("Don't leave empty");
+        return setErrors(temp_errors);
+      }
+    }
+
+    // Sets errors to default(empty) to clear error messages if there was any
     setErrors(temp_errors);
 
     Object.values(temp_errors).forEach((error) => {
@@ -181,7 +191,13 @@ export default function Home({ setSignupData }) {
             <hr className='home-start-seperator' />
             <form>
               <p className='home-start-step'>Step {formStep}/3</p>
-              <h3 className='home-start-form-title'>Let's start with the name of your brand/website</h3>
+              {formStep === 1 && (
+                <h3 className='home-start-form-title'>Let's start with the name of your brand/website</h3>
+              )}
+              {formStep === 2 && (
+                <h3 className='home-start-form-title'>Tell us about the type of website you are trying to perfect</h3>
+              )}
+              {formStep === 3 && <h3 className='home-start-form-title'>What is the website's intended audience?</h3>}
               <Input
                 label='Enter your brand/website name'
                 placeholder='Brand/Website name...'
@@ -189,6 +205,25 @@ export default function Home({ setSignupData }) {
                 onChange={setSiteName}
                 maxLength='75'
                 errors={errors.sitename}
+                className={formStep !== 1 && 'display-none'}
+              />
+              <Dropdown
+                label='Select type of website'
+                options={types_of_site_options}
+                heading='Type of site'
+                callback={setTypeOfSite}
+                errors={errors.typeofsite}
+                AutoClose
+                className={formStep !== 2 && 'display-none'}
+              />
+              <Dropdown
+                label='Select intended audience'
+                options={intended_audience_options}
+                heading='Intended audience'
+                callback={setIntendedAudience}
+                errors={errors.intendedaudience}
+                AutoClose
+                className={formStep !== 3 && 'display-none'}
               />
               <div className='home-start-buttons'>
                 {formStep !== 1 && (
@@ -201,7 +236,11 @@ export default function Home({ setSignupData }) {
                     Next step
                   </button>
                 )}
-                {formStep === 3 && <button className='btn btn-primary'>Complete setup</button>}
+                {formStep === 3 && (
+                  <button className='btn btn-primary' onClick={(e) => formHandler(e)}>
+                    Complete setup
+                  </button>
+                )}
               </div>
             </form>
           </div>
