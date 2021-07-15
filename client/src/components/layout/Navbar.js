@@ -34,7 +34,7 @@ export default function Navbar() {
               />
             </svg>
           </a>
-          <Link to='/authenticate' className='btn btn-primary'>
+          <Link to='/authenticate/login' className='btn btn-primary'>
             Log in
           </Link>
           <svg

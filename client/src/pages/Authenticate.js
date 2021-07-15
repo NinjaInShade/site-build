@@ -1,16 +1,18 @@
 // Libraries
-import React, { useState } from "react";
-import { Redirect } from "react-router-dom";
-import axios from "axios";
+import React, { useState } from 'react';
+import { Redirect } from 'react-router-dom';
+import axios from 'axios';
 
 // CSS
-import ".././css/Authenticate.css";
+import '.././css/Authenticate.css';
 
 // Context
-import { useAuth } from "../other/AuthContext";
+import { useAuth } from '../other/AuthContext';
 
 // Components
-import AuthForm from "../components/layout/AuthForm";
+import AuthForm from '../components/layout/AuthForm';
+
+// ON SINGUP, if signupData is empty/incomplete for some reason, give error msg saying to go back to "/#start" and fill form
 
 export default function Authenticate({ signupData }) {
   const [isLoggedIn, setLoggedIn] = useState(false);
@@ -23,7 +25,7 @@ export default function Authenticate({ signupData }) {
     let temp_errors = { email: [], username: [], password: [] };
 
     axios
-      .post("http://localhost:3000/auth/signup", {
+      .post('http://localhost:3000/auth/signup', {
         username,
         email,
         password,
@@ -39,7 +41,7 @@ export default function Authenticate({ signupData }) {
         }
       })
       .catch((e) => {
-        temp_errors.password.push("An error occurred");
+        temp_errors.password.push('An error occurred');
         console.log(e);
       });
 
@@ -69,8 +71,8 @@ export default function Authenticate({ signupData }) {
     //     console.log(e);
     //   });
 
-    setAuthToken({ token: "sda24142r2f2rf2d3d", expiry: 15, date_created: Date.now() });
-    setUserData({ id: 5, username: "Leon michalak", email: "bobob@gmail.com" });
+    setAuthToken({ token: 'sda24142r2f2rf2d3d', expiry: 15, date_created: Date.now() });
+    setUserData({ id: 5, username: 'Leon michalak', email: 'bobob@gmail.com' });
     setLoggedIn(true);
 
     setErrors(temp_errors);
@@ -81,8 +83,8 @@ export default function Authenticate({ signupData }) {
   }
 
   return (
-    <section className="authenticate">
-      <AuthForm signup={create_user} login={login_user} auth_errors={errors} />
+    <section className='authenticate'>
+      <AuthForm signup={create_user} login={login_user} auth_errors={errors} signupData={signupData} />
     </section>
   );
 }

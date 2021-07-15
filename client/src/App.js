@@ -98,7 +98,7 @@ function App() {
           </Route>
 
           {/* Authenticate page */}
-          <Route path='/authenticate' exact>
+          <Route path='/authenticate/:type' exact>
             <Authenticate signupData={signupData} />
           </Route>
 

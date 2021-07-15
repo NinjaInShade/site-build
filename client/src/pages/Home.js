@@ -90,7 +90,7 @@ export default function Home({ setSignupData }) {
         intendedaudience: intendedAudience,
       });
 
-      history.push(`/authenticate`);
+      history.push(`/authenticate/signup`);
     }
   }
 

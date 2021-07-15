@@ -1,21 +1,15 @@
-// Libraries
 import React, { useState, useEffect } from 'react';
-
-// CSS
 import '../../css/AuthForm.css';
-
-// Components
 import InputBox from '../general/Input';
 import Button from '../general/Button';
-
-// Images
 import Logo from '../../resources/BrandLogo.svg';
-
-// Other
 import { min_length, is_email } from '../../other/Algorithms';
+import { useHistory, useParams } from 'react-router-dom';
 
-export default function AuthForm({ signup, login, auth_errors }) {
-  const [mode, setMode] = useState('login');
+export default function AuthForm({ signup, login, auth_errors, signupData }) {
+  let { type } = useParams();
+  const history = useHistory();
+  const [mode, setMode] = useState(type);
 
   const [email, setEmail] = useState('');
   const [username, setUsername] = useState('');
@@ -81,6 +75,13 @@ export default function AuthForm({ signup, login, auth_errors }) {
 
   function switchMode(e, mode) {
     e.preventDefault();
+
+    console.log(signupData);
+
+    if (mode === 'signup' && Object.keys(signupData).length === 0) {
+      return history.push(`/#start`);
+    }
+
     setMode(mode);
   }
 
