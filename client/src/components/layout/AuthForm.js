@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import '../../css/AuthForm.css';
 import InputBox from '../general/Input';
-import Button from '../general/Button';
-import Logo from '../../resources/BrandLogo.svg';
+import Logo from '../../resources/Logo.png';
 import { min_length, is_email } from '../../other/Algorithms';
 import { useHistory, useParams } from 'react-router-dom';
+import '../../css/AuthForm.css';
+import '../../css/Buttons.css';
 
 export default function AuthForm({ signup, login, auth_errors, signupData }) {
   let { type } = useParams();
@@ -120,9 +120,9 @@ export default function AuthForm({ signup, login, auth_errors, signupData }) {
           errors={errors.password}
           rounded={false}
         />
-        <Button larger onClick={(e) => authenticateHandler(e)} className='AuthForm-submit-btn'>
+        <button onClick={(e) => authenticateHandler(e)} className='AuthForm-submit-btn btn btn-primary'>
           {mode === 'signup' ? 'Sign up' : 'Login'}
-        </Button>
+        </button>
         {mode === 'signup' ? (
           <p>
             Already have an account? <span onClick={(e) => switchMode(e, 'login')}>Sign in</span>
