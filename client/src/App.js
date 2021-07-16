@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { AuthContext } from './other/AuthContext';
 import ProtectedRoute from './other/ProtectedRoute';
 import Home from './pages/Home';
 import Authenticate from './pages/Authenticate';
 import ControlPanel from './pages/ControlPanel';
 import Unmatched from './pages/Unmatched';
-import { AuthContext } from './other/AuthContext';
 import './App.css';
 
 // userData format:

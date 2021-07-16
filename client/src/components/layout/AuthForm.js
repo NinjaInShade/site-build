@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import InputBox from '../general/Input';
-import Logo from '../../resources/Logo.png';
 import { min_length, is_email } from '../../other/Algorithms';
 import { useHistory, useParams } from 'react-router-dom';
+import InputBox from '../general/Input';
+import Logo from '../../resources/Logo.png';
 import '../../css/AuthForm.css';
 import '../../css/Buttons.css';
 
