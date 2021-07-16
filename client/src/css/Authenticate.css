@@ -1,9 +1,14 @@
 .authenticate {
-  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 30px;
-  background: #5c6e93;
-  max-width: none !important;
+  background: var(--primary-dark);
+  min-height: calc(100vh - 102px);
+  padding: 50px 30px;
+}
+
+@media (max-width: 550px) {
+  .authenticate {
+    min-height: calc(100vh - 110px);
+  }
 }

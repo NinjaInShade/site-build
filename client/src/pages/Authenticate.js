@@ -1,16 +1,11 @@
 // Libraries
 import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
-import axios from 'axios';
-
-// CSS
-import '.././css/Authenticate.css';
-
-// Context
 import { useAuth } from '../other/AuthContext';
-
-// Components
+import Navbar from '../components/layout/Navbar';
+import axios from 'axios';
 import AuthForm from '../components/layout/AuthForm';
+import '.././css/Authenticate.css';
 
 // ON SINGUP, if signupData is empty/incomplete for some reason, give error msg saying to go back to "/#start" and fill form
 
@@ -83,8 +78,11 @@ export default function Authenticate({ signupData }) {
   }
 
   return (
-    <section className='authenticate'>
-      <AuthForm signup={create_user} login={login_user} auth_errors={errors} signupData={signupData} />
-    </section>
+    <>
+      <Navbar />
+      <section className='authenticate'>
+        <AuthForm signup={create_user} login={login_user} auth_errors={errors} signupData={signupData} />
+      </section>
+    </>
   );
 }
