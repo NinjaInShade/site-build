@@ -25,6 +25,7 @@ import './App.css';
 // TODO: Make navbar responsive with a sidebar menu
 // TODO: Make dropdown absolute so window height doesn't change.
 // TODO: Redesign control panel
+// TODO: Implement authentication
 
 // TODO: Code control panel - sidebar component & project card component
 // TODO: control panel should load sites data into state on component mount ( useEffect hook )
