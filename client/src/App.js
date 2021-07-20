@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { AuthContext } from './other/AuthContext';
+import Auth0ProviderWithHistory from './auth/auth0-provider-with-history';
 import ProtectedRoute from './other/ProtectedRoute';
 import Home from './pages/Home';
 import Authenticate from './pages/Authenticate';
@@ -93,27 +94,29 @@ function App() {
   return (
     <AuthContext.Provider value={{ authToken, setAuthToken: setToken, logout, userData, setUserData: setData }}>
       <Router>
-        <Switch>
-          {/* Main homepage */}
-          <Route path='/' exact>
-            <Home setSignupData={setSignupData} />
-          </Route>
+        <Auth0ProviderWithHistory>
+          <Switch>
+            {/* Main homepage */}
+            <Route path='/' exact>
+              <Home setSignupData={setSignupData} />
+            </Route>
 
-          {/* Authenticate page */}
-          <Route path='/authenticate/:type' exact>
-            <Authenticate signupData={signupData} />
-          </Route>
+            {/* Authenticate page */}
+            <Route path='/authenticate/:type' exact>
+              <Authenticate signupData={signupData} />
+            </Route>
 
-          {/* Main control panel for authed users */}
-          <ProtectedRoute path='/controlpanel/:userid'>
-            <ControlPanel />
-          </ProtectedRoute>
+            {/* Main control panel for authed users */}
+            <ProtectedRoute path='/controlpanel/:userid'>
+              <ControlPanel />
+            </ProtectedRoute>
 
-          {/* 404 Route */}
-          <Route>
-            <Unmatched />
-          </Route>
-        </Switch>
+            {/* 404 Route */}
+            <Route>
+              <Unmatched />
+            </Route>
+          </Switch>
+        </Auth0ProviderWithHistory>
       </Router>
     </AuthContext.Provider>
   );
