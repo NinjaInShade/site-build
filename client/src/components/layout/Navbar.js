@@ -1,7 +1,7 @@
 // Libraries
 import React, { useState } from 'react';
 import BrandLogo from '../../resources/Logo.png';
-import { Link } from 'react-router-dom';
+import { useAuth0 } from '@auth0/auth0-react';
 
 import '../../css/Buttons.css';
 import '../../css/Hamburger.css';
@@ -9,6 +9,8 @@ import '../../css/Navbar.css';
 
 export default function Navbar() {
   const [active, setActive] = useState(false);
+
+  const { loginWithRedirect } = useAuth0();
 
   return (
     <nav className='navbar'>
@@ -34,9 +36,9 @@ export default function Navbar() {
               />
             </svg>
           </a>
-          <Link to='/authenticate/login' className='btn btn-primary'>
+          <button onClick={() => loginWithRedirect()} className='btn btn-primary'>
             Log in
-          </Link>
+          </button>
           <svg
             className={`ham hamRotate ham1 ${active && 'active'}`}
             viewBox='0 0 100 100'
