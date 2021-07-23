@@ -10,7 +10,6 @@ import '.././css/Authenticate.css';
 
 export default function Authenticate({ signupData }) {
   const [isLoggedIn, setLoggedIn] = useState(false);
-  const [errors, setErrors] = useState({ email: [], username: [], password: [] });
 
   const { signup } = useAuth();
 
@@ -24,7 +23,7 @@ export default function Authenticate({ signupData }) {
     <>
       <Navbar />
       <section className='authenticate'>
-        <AuthForm signup={signup} login={login} auth_errors={errors} signupData={signupData} />
+        <AuthForm signup={signup} login={login} signupData={signupData} />
       </section>
     </>
   );

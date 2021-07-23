@@ -6,7 +6,7 @@ import Logo from '../../resources/Logo.png';
 import '../../css/AuthForm.css';
 import '../../css/Buttons.css';
 
-export default function AuthForm({ signup, login, auth_errors, signupData }) {
+export default function AuthForm({ signup, login, signupData }) {
   let { type } = useParams();
   const history = useHistory();
   const [mode, setMode] = useState(type);
@@ -15,6 +15,7 @@ export default function AuthForm({ signup, login, auth_errors, signupData }) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
+  const [authErrors, setAuthErrors] = useState({ email: [], username: [], password: [] });
   const [errors, setErrors] = useState({
     email: [],
     username: [],
@@ -29,8 +30,8 @@ export default function AuthForm({ signup, login, auth_errors, signupData }) {
   }, [mode]);
 
   useEffect(() => {
-    setErrors(auth_errors);
-  }, [auth_errors]);
+    setErrors(authErrors);
+  }, [authErrors]);
 
   function authenticateHandler(e) {
     e.preventDefault();
@@ -66,7 +67,13 @@ export default function AuthForm({ signup, login, auth_errors, signupData }) {
     // Once data is valid
     if (!is_errors) {
       if (mode === 'signup') {
-        signup(email, password);
+        signup(email, password)
+          .then((user) => {
+            console.log(user);
+          })
+          .catch((err) => {
+            setAuthErrors({ email: [err.message], username: [], password: [] });
+          });
       } else {
         login(email, password);
       }
