@@ -26,12 +26,8 @@ import './App.css';
 // TODO: Make navbar responsive with a sidebar menu
 // TODO: Make dropdown absolute so window height doesn't change.
 // TODO: Redesign control panel
-// TODO: Implement authentication
-
 // TODO: Code control panel - sidebar component & project card component
 // TODO: control panel should load sites data into state on component mount ( useEffect hook )
-
-/// Backend considerations
 // TODO: Look into how to refresh the token if user is active
 // TODO: When a sites progress is saved( so more/less boxes are checked ) then recalculate and update the progress % in db
 
