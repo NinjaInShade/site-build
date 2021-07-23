@@ -33,9 +33,9 @@ export default function Home({ setSignupData }) {
     intendedaudience: [],
   });
 
-  if (authToken.token) {
-    return <Redirect to={`/controlpanel/${userData.id}`} />;
-  }
+  // if (authToken.token) {
+  //   return <Redirect to={`/controlpanel/${userData.id}`} />;
+  // }
 
   function decreaseStep(e) {
     e.preventDefault();

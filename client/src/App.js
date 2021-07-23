@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { AuthContext } from './other/AuthContext';
+import { AuthProvider } from './other/AuthContext';
 import ProtectedRoute from './other/ProtectedRoute';
 import Home from './pages/Home';
 import Authenticate from './pages/Authenticate';
@@ -56,38 +56,38 @@ function App() {
   // }
 
   // eslint-disable-next-line
-  function logout() {
-    setAuthToken(initial_token_state);
-    setUserData(initial_user_state);
-    localStorage.setItem('token', JSON.stringify(initial_token_state));
-    localStorage.setItem('user', JSON.stringify(initial_user_state));
-  }
+  // function logout() {
+  //   setAuthToken(initial_token_state);
+  //   setUserData(initial_user_state);
+  //   localStorage.setItem('token', JSON.stringify(initial_token_state));
+  //   localStorage.setItem('user', JSON.stringify(initial_user_state));
+  // }
 
-  function setData(user) {
-    // Set user state
-    localStorage.setItem('user', JSON.stringify(user));
-    setUserData({
-      id: user.id,
-      username: user.username,
-      email: user.email,
-    });
-  }
+  // function setData(user) {
+  //   // Set user state
+  //   localStorage.setItem('user', JSON.stringify(user));
+  //   setUserData({
+  //     id: user.id,
+  //     username: user.username,
+  //     email: user.email,
+  //   });
+  // }
 
-  useEffect(() => {
-    if (authToken.token) {
-      // If the current time is > token.created + expiry date, then set it to no token
-      let date_now = Date.now();
-      let diff = Math.abs(date_now - authToken.date_created);
-      let minutes = Math.floor(diff / 1000 / 60);
+  // useEffect(() => {
+  //   if (authToken.token) {
+  //     // If the current time is > token.created + expiry date, then set it to no token
+  //     let date_now = Date.now();
+  //     let diff = Math.abs(date_now - authToken.date_created);
+  //     let minutes = Math.floor(diff / 1000 / 60);
 
-      if (minutes >= authToken.expiry) {
-        logout();
-      }
-    }
-  }, [authToken, logout]);
+  //     if (minutes >= authToken.expiry) {
+  //       logout();
+  //     }
+  //   }
+  // }, [authToken, logout]);
 
   return (
-    <AuthContext.Provider value={{ authToken, setAuthToken: setToken, logout, userData, setUserData: setData }}>
+    <AuthProvider>
       <Router>
         <Switch>
           {/* Main homepage */}
@@ -101,7 +101,7 @@ function App() {
           </Route>
 
           {/* Main control panel for authed users */}
-          <ProtectedRoute path='/controlpanel/:userid'>
+          <ProtectedRoute path='/controlpanel'>
             <ControlPanel />
           </ProtectedRoute>
 
@@ -111,7 +111,7 @@ function App() {
           </Route>
         </Switch>
       </Router>
-    </AuthContext.Provider>
+    </AuthProvider>
   );
 }
 

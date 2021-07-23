@@ -66,7 +66,7 @@ export default function AuthForm({ signup, login, auth_errors, signupData }) {
     // Once data is valid
     if (!is_errors) {
       if (mode === 'signup') {
-        signup(username, email, password);
+        signup(email, password);
       } else {
         login(email, password);
       }
