@@ -29,10 +29,6 @@ export default function AuthForm({ signup, login, signupData }) {
     setErrors({ email: [], username: [], password: [] });
   }, [mode]);
 
-  useEffect(() => {
-    setErrors(authErrors);
-  }, [authErrors]);
-
   function authenticateHandler(e) {
     e.preventDefault();
     let is_errors = false;
@@ -130,6 +126,14 @@ export default function AuthForm({ signup, login, signupData }) {
         <button onClick={(e) => authenticateHandler(e)} className='AuthForm-submit-btn btn btn-primary'>
           {mode === 'signup' ? 'Sign up' : 'Login'}
         </button>
+        {authErrors.email &&
+          authErrors.email.map((error) => {
+            return (
+              <p key={error} className='inputbox-error'>
+                * {error} *
+              </p>
+            );
+          })}
         {mode === 'signup' ? (
           <p>
             Already have an account? <span onClick={(e) => switchMode(e, 'login')}>Sign in</span>

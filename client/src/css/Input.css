@@ -27,7 +27,8 @@
   color: var(--primary-dark);
 }
 
-.inputbox-container p {
+.inputbox-container p,
+.inputbox-error {
   margin: 8px 0;
   color: #a84632;
 }
