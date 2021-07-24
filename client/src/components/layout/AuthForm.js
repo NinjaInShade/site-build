@@ -15,7 +15,7 @@ export default function AuthForm({ signup, login, signupData }) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-  const [authErrors, setAuthErrors] = useState({ email: [], username: [], password: [] });
+  const [authError, setAuthError] = useState();
   const [errors, setErrors] = useState({
     email: [],
     username: [],
@@ -68,7 +68,7 @@ export default function AuthForm({ signup, login, signupData }) {
             console.log(user);
           })
           .catch((err) => {
-            setAuthErrors({ email: [err.message], username: [], password: [] });
+            setAuthError(err.message);
           });
       } else {
         login(email, password);
@@ -126,14 +126,7 @@ export default function AuthForm({ signup, login, signupData }) {
         <button onClick={(e) => authenticateHandler(e)} className='AuthForm-submit-btn btn btn-primary'>
           {mode === 'signup' ? 'Sign up' : 'Login'}
         </button>
-        {authErrors.email &&
-          authErrors.email.map((error) => {
-            return (
-              <p key={error} className='inputbox-error'>
-                * {error} *
-              </p>
-            );
-          })}
+        {authError && <p className='inputbox-error'>* {authError} *</p>}
         {mode === 'signup' ? (
           <p>
             Already have an account? <span onClick={(e) => switchMode(e, 'login')}>Sign in</span>
