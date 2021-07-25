@@ -24,7 +24,11 @@ export function AuthProvider({ children }) {
     return auth.createUserWithEmailAndPassword(email, password);
   }
 
-  const value = { currentUser, signup };
+  function login(email, password) {
+    return auth.signInWithEmailAndPassword(email, password);
+  }
+
+  const value = { currentUser, signup, login };
 
   return <AuthContext.Provider value={value}>{!loading && children}</AuthContext.Provider>;
 }

@@ -77,7 +77,15 @@ export default function AuthForm({ signup, login, signupData }) {
           });
       } else {
         setLoading(true);
-        login(email, password);
+        login(email, password)
+          .then((user) => {
+            setLoading(false);
+          })
+          .catch((err) => {
+            setLoading(false);
+
+            setAuthError(err.message);
+          });
       }
     }
   }
