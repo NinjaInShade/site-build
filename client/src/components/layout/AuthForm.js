@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { min_length, is_email } from '../../other/Algorithms';
 import { useHistory, useParams } from 'react-router-dom';
+import { db } from '../../firebase';
 import InputBox from '../general/Input';
 import Logo from '../../resources/Logo.png';
 import '../../css/AuthForm.css';
 import '../../css/Buttons.css';
 
-export default function AuthForm({ signup, login, signupData }) {
+export default function AuthForm({ signup, login, signupData, setSignupData }) {
   let { type } = useParams();
   const history = useHistory();
   const [mode, setMode] = useState(type);
@@ -64,13 +65,26 @@ export default function AuthForm({ signup, login, signupData }) {
     // Once data is valid
     if (!is_errors) {
       if (mode === 'signup') {
+        let newUser;
         setLoading(true);
 
         signup(email, password)
           .then((user) => {
-            setLoading(false);
+            newUser = user;
 
-            history.push(`/controlpanel/${user.user.uid}`);
+            return db.collection('users').add({
+              uid: user.user.uid,
+              email: user.user.email,
+              username: 'NinjaInShade',
+            });
+          })
+          .then((docRef) => {
+            setLoading(false);
+            setSignupData(undefined);
+
+            console.log(docRef);
+
+            return history.push(`/controlpanel/${newUser.user.uid}`);
           })
           .catch((err) => {
             setLoading(false);

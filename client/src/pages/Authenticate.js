@@ -8,7 +8,7 @@ import '.././css/Authenticate.css';
 export default function Authenticate({ signupData }) {
   const { currentUser, signup, login } = useAuth();
 
-  return currentUser ? (
+  return !signupData && !currentUser ? (
     <Redirect to={`/controlpanel/${currentUser.uid}`} />
   ) : (
     <>

@@ -16,8 +16,7 @@ import './App.css';
 //   sites: [siteobject: {
 //     sitename,
 //     typeofsite,
-//     intendedaudience,
-//     agegroup,
+//     intendedaudience
 //     ...
 //   }]
 // }
@@ -32,7 +31,7 @@ import './App.css';
 
 function App() {
   // Data if new user
-  const [signupData, setSignupData] = useState({});
+  const [signupData, setSignupData] = useState(undefined);
 
   return (
     <Router>
@@ -43,7 +42,7 @@ function App() {
           </Route>
 
           <Route path='/authenticate/:type' exact>
-            <Authenticate signupData={signupData} />
+            <Authenticate signupData={signupData} setSignupData={setSignupData} />
           </Route>
 
           <ProtectedRoute path='/controlpanel/:userid' exact>
