@@ -18,8 +18,8 @@ import '../css/Home-footer.css';
 import '../css/Buttons.css';
 
 export default function Home({ setSignupData }) {
-  const { userData, authToken } = useAuth();
   const history = useHistory();
+  const { currentUser } = useAuth();
 
   const [formStep, setFormStep] = useState(1);
 
@@ -33,9 +33,9 @@ export default function Home({ setSignupData }) {
     intendedaudience: [],
   });
 
-  // if (authToken.token) {
-  //   return <Redirect to={`/controlpanel/${userData.id}`} />;
-  // }
+  if (currentUser) {
+    return <Redirect to={`/controlpanel`} />;
+  }
 
   function decreaseStep(e) {
     e.preventDefault();

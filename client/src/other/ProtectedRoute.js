@@ -1,12 +1,11 @@
-// Libraries
-import React from "react";
-import { Redirect, Route } from "react-router-dom";
-
-// Context
-import { useAuth } from "./AuthContext";
+import React from 'react';
+import { Redirect, Route } from 'react-router-dom';
+import { useAuth } from './AuthContext';
 
 export default function ProtectedRoute({ component: Component, ...rest }) {
-  const { authToken } = useAuth();
+  const { currentUser } = useAuth();
 
-  return <Route {...rest} render={(props) => (authToken.token ? <Component {...rest} {...props} /> : <Redirect to="/" />)} />;
+  return (
+    <Route {...rest} render={(props) => (currentUser ? <Component {...rest} {...props} /> : <Redirect to='/' />)} />
+  );
 }

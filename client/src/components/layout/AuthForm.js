@@ -69,8 +69,6 @@ export default function AuthForm({ signup, login, signupData }) {
         signup(email, password)
           .then((user) => {
             setLoading(false);
-
-            console.log(user);
           })
           .catch((err) => {
             setLoading(false);

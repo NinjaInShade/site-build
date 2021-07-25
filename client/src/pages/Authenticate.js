@@ -1,5 +1,5 @@
 // Libraries
-import React, { useState } from 'react';
+import React from 'react';
 import { Redirect } from 'react-router-dom';
 import { useAuth } from '../other/AuthContext';
 import Navbar from '../components/layout/Navbar';
@@ -9,13 +9,11 @@ import '.././css/Authenticate.css';
 // ON SINGUP, if signupData is empty/incomplete for some reason, give error msg saying to go back to "/#start" and fill form
 
 export default function Authenticate({ signupData }) {
-  const [isLoggedIn, setLoggedIn] = useState(false);
-
-  const { signup } = useAuth();
+  const { currentUser, signup } = useAuth();
 
   const login = 'TEMP';
 
-  if (isLoggedIn) {
+  if (!currentUser) {
     return <Redirect to={`/controlpanel`} />;
   }
 
