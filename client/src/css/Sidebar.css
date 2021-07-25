@@ -37,6 +37,11 @@
   cursor: pointer;
 }
 
+.sidebar button {
+  display: flex;
+  background: none;
+}
+
 .sidebar li:hover {
   background: #2f3c5f;
 }

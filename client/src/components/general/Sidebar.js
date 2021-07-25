@@ -54,9 +54,11 @@ export default function Sidebar({ sites, openState, user }) {
 
       <ul>
         <h3>Profile</h3>
-        <li onClick={handleLogout}>
-          <span className='iconify' data-inline='false' data-icon='ic:twotone-log-out'></span>
-          <p>Logout</p>
+        <li>
+          <button onClick={() => handleLogout()}>
+            <span className='iconify' data-inline='false' data-icon='ic:twotone-log-out'></span>
+            <p>Logout</p>
+          </button>
         </li>
       </ul>
     </div>

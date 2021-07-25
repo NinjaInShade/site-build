@@ -9,7 +9,7 @@ export default function ProtectedRoute({ children, ...rest }) {
     <Route
       {...rest}
       render={() => {
-        return currentUser ? children : <Redirect to='/login' />;
+        return currentUser ? children : <Redirect to='/' />;
       }}
     />
   );
