@@ -66,6 +66,7 @@ export default function AuthForm({ signup, login, signupData, setSignupData }) {
     if (!is_errors) {
       if (mode === 'signup') {
         let newUser;
+        console.log(signupData);
         setLoading(true);
 
         signup(email, password)
@@ -75,14 +76,19 @@ export default function AuthForm({ signup, login, signupData, setSignupData }) {
             return db.collection('users').add({
               uid: user.user.uid,
               email: user.user.email,
-              username: 'NinjaInShade',
+              username,
+              sites: [
+                {
+                  type_of_site: signupData.typeofsite,
+                  intended_audience: signupData.intendedaudience,
+                  site_name: signupData.sitename,
+                },
+              ],
             });
           })
-          .then((docRef) => {
-            setLoading(false);
+          .then(() => {
             setSignupData(undefined);
-
-            console.log(docRef);
+            setLoading(false);
 
             return history.push(`/controlpanel/${newUser.user.uid}`);
           })
@@ -110,8 +116,6 @@ export default function AuthForm({ signup, login, signupData, setSignupData }) {
 
   function switchMode(e, mode) {
     e.preventDefault();
-
-    console.log(signupData);
 
     if (mode === 'signup' && !signupData) {
       return history.push(`/#start`);
