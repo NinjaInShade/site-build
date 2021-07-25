@@ -46,7 +46,7 @@ function App() {
             <Authenticate signupData={signupData} />
           </Route>
 
-          <ProtectedRoute path='/controlpanel' exact>
+          <ProtectedRoute path='/controlpanel/:userid' exact>
             <ControlPanel />
           </ProtectedRoute>
 

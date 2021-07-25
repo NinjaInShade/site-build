@@ -70,7 +70,7 @@ export default function AuthForm({ signup, login, signupData }) {
           .then((user) => {
             setLoading(false);
 
-            history.push('/controlpanel');
+            history.push(`/controlpanel/${user.user.uid}`);
           })
           .catch((err) => {
             setLoading(false);
@@ -83,7 +83,7 @@ export default function AuthForm({ signup, login, signupData }) {
           .then((user) => {
             setLoading(false);
 
-            history.push('/controlpanel');
+            history.push(`/controlpanel/${user.user.uid}`);
           })
           .catch((err) => {
             setLoading(false);
