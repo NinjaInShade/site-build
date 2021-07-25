@@ -8,9 +8,9 @@ import '.././css/Authenticate.css';
 export default function Authenticate({ signupData }) {
   const { currentUser, signup, login } = useAuth();
 
-  // if (currentUser) {
-  //   return <Redirect to={`/controlpanel`} />;
-  // }
+  if (currentUser) {
+    return <Redirect to={`/controlpanel`} />;
+  }
 
   return (
     <>

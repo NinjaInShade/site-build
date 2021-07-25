@@ -54,7 +54,7 @@ export default function ControlPanel() {
   const { currentUser } = useAuth();
   let { path } = useRouteMatch();
 
-  console.log(currentUser);
+  console.log(currentUser.email, currentUser.uid);
 
   useEffect(() => {
     // console.log(`Send fetch request to get data for user #${currentUser.uid} sites`);
@@ -65,7 +65,7 @@ export default function ControlPanel() {
 
   return (
     <section className='ControlPanel'>
-      <Sidebar sites={sites} openState={open} />
+      <Sidebar sites={sites} openState={open} user={currentUser} />
       <section>
         <div>
           <button onClick={() => setOpen(!open)}>
@@ -73,8 +73,12 @@ export default function ControlPanel() {
           </button>
         </div>
         <Switch>
-          <ProtectedRoute path={`${path}/site/:siteid`} component={SiteDashboard} user={currentUser} sites={sites} />
-          <ProtectedRoute path={`${path}/`} component={SitesOverview} exact user={currentUser} sites={sites} />
+          <ProtectedRoute path={`${path}/site/:siteid`}>
+            <SiteDashboard user={currentUser} sites={sites} />
+          </ProtectedRoute>
+          <ProtectedRoute path={`${path}/`} exact>
+            <SitesOverview user={currentUser} sites={sites} />
+          </ProtectedRoute>
         </Switch>
       </section>
     </section>

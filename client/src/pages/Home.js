@@ -91,7 +91,7 @@ export default function Home({ setSignupData }) {
   }
 
   return currentUser ? (
-    <Redirect to={`/controlpanel`} />
+    <Redirect to={`/controlpanel/${currentUser.uid}`} />
   ) : (
     <>
       <Navbar />

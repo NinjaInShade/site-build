@@ -1,11 +1,12 @@
 import React, { useEffect } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 import Logo from '../../resources/BrandLogo.svg';
 import { useAuth } from '../../other/AuthContext';
 import '../../css/Sidebar.css';
 
-export default function Sidebar({ sites, openState }) {
-  const { currentUser, logout } = useAuth();
+export default function Sidebar({ sites, openState, user }) {
+  const { logout } = useAuth();
+  const history = useHistory();
 
   useEffect(() => {
     if (openState) {
@@ -15,7 +16,13 @@ export default function Sidebar({ sites, openState }) {
     }
   }, [openState]);
 
-  console.log(currentUser);
+  function handleLogout() {
+    logout()
+      .then(() => {
+        history.push('/');
+      })
+      .catch((err) => console.log(err));
+  }
 
   return (
     <div className='sidebar'>
@@ -26,7 +33,7 @@ export default function Sidebar({ sites, openState }) {
 
       <ul>
         <h3>Control Panel</h3>
-        <NavLink to={`/controlpanel/${currentUser.id}`} activeClassName='sidebar-active' exact>
+        <NavLink to={`/controlpanel/${user.uid}`} activeClassName='sidebar-active' exact>
           <li>
             <span className='iconify' data-inline='false' data-icon='fa-solid:hammer'></span>
             <p>Sites overview</p>
@@ -35,11 +42,7 @@ export default function Sidebar({ sites, openState }) {
         {sites &&
           sites.map((site) => {
             return (
-              <NavLink
-                to={`/controlpanel/${currentUser.id}/site/${site.id}`}
-                activeClassName='sidebar-active'
-                key={site.id}
-              >
+              <NavLink to={`/controlpanel/${user.uid}/site/${site.id}`} activeClassName='sidebar-active' key={site.id}>
                 <li>
                   <span className='iconify' data-inline='false' data-icon='ic:baseline-content-copy'></span>
                   <p>{site.title}</p>
@@ -51,7 +54,7 @@ export default function Sidebar({ sites, openState }) {
 
       <ul>
         <h3>Profile</h3>
-        <li onClick={logout}>
+        <li onClick={handleLogout}>
           <span className='iconify' data-inline='false' data-icon='ic:twotone-log-out'></span>
           <p>Logout</p>
         </li>
