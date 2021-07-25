@@ -113,7 +113,7 @@ export default function AuthForm({ signup, login, signupData, setSignupData }) {
 
     console.log(signupData);
 
-    if (mode === 'signup' && Object.keys(signupData).length === 0) {
+    if (mode === 'signup' && !signupData) {
       return history.push(`/#start`);
     }
 

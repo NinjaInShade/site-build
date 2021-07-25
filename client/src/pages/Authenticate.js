@@ -1,5 +1,5 @@
 import React from 'react';
-import { Redirect } from 'react-router-dom';
+import { Redirect, useParams } from 'react-router-dom';
 import { useAuth } from '../other/AuthContext';
 import Navbar from '../components/layout/Navbar';
 import AuthForm from '../components/layout/AuthForm';
@@ -7,8 +7,9 @@ import '.././css/Authenticate.css';
 
 export default function Authenticate({ signupData }) {
   const { currentUser, signup, login } = useAuth();
+  let { type } = useParams();
 
-  return !signupData && !currentUser ? (
+  return (!signupData && type === 'signup') || currentUser ? (
     <Redirect to={`/controlpanel/${currentUser.uid}`} />
   ) : (
     <>
