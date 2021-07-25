@@ -15,6 +15,7 @@ export default function AuthForm({ signup, login, signupData }) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
+  const [loading, setLoading] = useState(false);
   const [authError, setAuthError] = useState();
   const [errors, setErrors] = useState({
     email: [],
@@ -63,14 +64,21 @@ export default function AuthForm({ signup, login, signupData }) {
     // Once data is valid
     if (!is_errors) {
       if (mode === 'signup') {
+        setLoading(true);
+
         signup(email, password)
           .then((user) => {
+            setLoading(false);
+
             console.log(user);
           })
           .catch((err) => {
+            setLoading(false);
+
             setAuthError(err.message);
           });
       } else {
+        setLoading(true);
         login(email, password);
       }
     }
@@ -123,7 +131,11 @@ export default function AuthForm({ signup, login, signupData }) {
           errors={errors.password}
           rounded={false}
         />
-        <button onClick={(e) => authenticateHandler(e)} className='AuthForm-submit-btn btn btn-primary'>
+        <button
+          disabled={loading}
+          onClick={(e) => authenticateHandler(e)}
+          className='AuthForm-submit-btn btn btn-primary'
+        >
           {mode === 'signup' ? 'Sign up' : 'Login'}
         </button>
         {authError && <p className='inputbox-error'>* {authError} *</p>}
