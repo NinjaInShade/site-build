@@ -35,8 +35,8 @@ function App() {
   const [signupData, setSignupData] = useState({});
 
   return (
-    <AuthProvider>
-      <Router>
+    <Router>
+      <AuthProvider>
         <Switch>
           <Route path='/' exact>
             <Home setSignupData={setSignupData} />
@@ -46,7 +46,7 @@ function App() {
             <Authenticate signupData={signupData} />
           </Route>
 
-          <ProtectedRoute path='/controlpanel'>
+          <ProtectedRoute path='/controlpanel' exact>
             <ControlPanel />
           </ProtectedRoute>
 
@@ -54,8 +54,8 @@ function App() {
             <Unmatched />
           </Route>
         </Switch>
-      </Router>
-    </AuthProvider>
+      </AuthProvider>
+    </Router>
   );
 }
 

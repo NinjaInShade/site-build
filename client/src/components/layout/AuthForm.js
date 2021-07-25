@@ -69,6 +69,8 @@ export default function AuthForm({ signup, login, signupData }) {
         signup(email, password)
           .then((user) => {
             setLoading(false);
+
+            history.push('/controlpanel');
           })
           .catch((err) => {
             setLoading(false);
@@ -80,6 +82,8 @@ export default function AuthForm({ signup, login, signupData }) {
         login(email, password)
           .then((user) => {
             setLoading(false);
+
+            history.push('/controlpanel');
           })
           .catch((err) => {
             setLoading(false);

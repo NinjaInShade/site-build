@@ -25,6 +25,8 @@ export default function ControlPanel() {
   const { currentUser } = useAuth();
   let { path } = useRouteMatch();
 
+  console.log(currentUser);
+
   useEffect(() => {
     console.log(`Send fetch request to get data for user #${currentUser.uid} sites`);
     console.log(

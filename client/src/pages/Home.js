@@ -33,10 +33,6 @@ export default function Home({ setSignupData }) {
     intendedaudience: [],
   });
 
-  if (currentUser) {
-    return <Redirect to={`/controlpanel`} />;
-  }
-
   function decreaseStep(e) {
     e.preventDefault();
 
@@ -94,7 +90,9 @@ export default function Home({ setSignupData }) {
     }
   }
 
-  return (
+  return currentUser ? (
+    <Redirect to={`/controlpanel`} />
+  ) : (
     <>
       <Navbar />
 
