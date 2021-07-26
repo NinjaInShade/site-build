@@ -25,12 +25,9 @@ import './App.css';
 // TODO: Make dropdown absolute so window height doesn't change.
 // TODO: Redesign control panel
 // TODO: Code control panel - sidebar component & project card component
-// TODO: control panel should load sites data into state on component mount ( useEffect hook )
-// TODO: Look into how to refresh the token if user is active
 // TODO: When a sites progress is saved( so more/less boxes are checked ) then recalculate and update the progress % in db
 
 function App() {
-  // Data if new user
   const [signupData, setSignupData] = useState(undefined);
 
   return (

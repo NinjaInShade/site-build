@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { min_length, is_email } from '../../other/Algorithms';
+import { v4 as uuidv4 } from 'uuid';
 import { useHistory, useParams } from 'react-router-dom';
 import { db } from '../../firebase';
 import InputBox from '../general/Input';
@@ -79,6 +80,10 @@ export default function AuthForm({ signup, login, findAndSetUser, signupData, se
               username,
               sites: [
                 {
+                  id: uuidv4(),
+                  progress: 0,
+                  colour: 0,
+                  data: [],
                   type_of_site: signupData.typeofsite,
                   intended_audience: signupData.intendedaudience,
                   site_name: signupData.sitename,
