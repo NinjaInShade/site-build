@@ -7,7 +7,7 @@ import Logo from '../../resources/Logo.png';
 import '../../css/AuthForm.css';
 import '../../css/Buttons.css';
 
-export default function AuthForm({ signup, login, signupData, setSignupData }) {
+export default function AuthForm({ signup, login, findAndSetUser, signupData, setSignupData }) {
   let { type } = useParams();
   const history = useHistory();
   const [mode, setMode] = useState(type);

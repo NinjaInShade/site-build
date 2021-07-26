@@ -1,5 +1,5 @@
 import { createContext, useContext, useState, useEffect } from 'react';
-import { auth } from '../firebase';
+import { auth, db } from '../firebase';
 
 export const AuthContext = createContext();
 
@@ -13,7 +13,17 @@ export function AuthProvider({ children }) {
 
   useEffect(() => {
     const unsuscribe = auth.onAuthStateChanged((user) => {
-      setCurrentUser(user);
+      // TODO: Find user data in database, and set current user as data from that
+      db.collection('users')
+        .where('uid', '==', user.uid)
+        .get()
+        .then((querySnapshot) => {
+          querySnapshot.forEach((doc) => {
+            setCurrentUser(doc.data());
+          });
+        })
+        .catch((err) => console.log(err));
+
       setLoading(false);
     });
 

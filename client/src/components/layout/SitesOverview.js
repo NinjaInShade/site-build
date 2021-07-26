@@ -16,7 +16,7 @@ export default function SitesOverview({ sites, user }) {
       <div className='sites-overview-cards-container'>
         {sites.map((site) => {
           return (
-            <Link to={`/controlpanel/${user.id}/site/${site.id}`} key={site.id}>
+            <Link to={`/controlpanel/${user.uid}/site/${site.id}`} key={site.id}>
               <SiteCard site={site} key={site.id} />
             </Link>
           );
