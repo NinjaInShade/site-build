@@ -10,7 +10,7 @@ export default function Authenticate({ signupData }) {
   let { type } = useParams();
 
   return (!signupData && type === 'signup') || currentUser ? (
-    <Redirect to={`/controlpanel/${currentUser.uid}`} />
+    <Redirect to={`/dashboard/${currentUser.uid}`} />
   ) : (
     <>
       <Navbar />

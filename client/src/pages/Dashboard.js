@@ -9,7 +9,7 @@ import SitesOverview from '../components/layout/SitesOverview';
 import SiteDashboard from '../components/layout/SiteDashboard';
 import '../css/ControlPanel.css';
 
-export default function ControlPanel() {
+export default function Dashboard() {
   const [sites, setSites] = useState([
     {
       id: 1,

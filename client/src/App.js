@@ -4,7 +4,7 @@ import { AuthProvider } from './other/AuthContext';
 import ProtectedRoute from './other/ProtectedRoute';
 import Home from './pages/Home';
 import Authenticate from './pages/Authenticate';
-import ControlPanel from './pages/ControlPanel';
+import Dashboard from './pages/Dashboard';
 import Unmatched from './pages/Unmatched';
 import './App.css';
 
@@ -45,8 +45,8 @@ function App() {
             <Authenticate signupData={signupData} setSignupData={setSignupData} />
           </Route>
 
-          <ProtectedRoute path='/controlpanel/:userid' exact>
-            <ControlPanel />
+          <ProtectedRoute path='/dashboard/:userid' exact>
+            <Dashboard />
           </ProtectedRoute>
 
           <Route>
