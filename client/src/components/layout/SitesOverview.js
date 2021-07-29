@@ -11,12 +11,12 @@ import SiteCard from '../general/SiteCard';
 export default function SitesOverview({ sites, user }) {
   return (
     <div className='sites-overview'>
-      <h3>{user.email}</h3>
-      <h2>{user.username}</h2>
+      <h3 className='sites-overview-email'>{user.email}</h3>
+      <h2 className='sites-overview-username'>{user.username}</h2>
       <div className='sites-overview-cards-container'>
         {sites.map((site) => {
           return (
-            <Link to={`/controlpanel/${user.uid}/site/${site.id}`} key={site.id}>
+            <Link to={`/dashboard/${user.uid}/site/${site.id}`} key={site.id}>
               <SiteCard site={site} key={site.id} />
             </Link>
           );

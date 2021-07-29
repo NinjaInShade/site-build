@@ -42,7 +42,7 @@ function App() {
             <Authenticate signupData={signupData} setSignupData={setSignupData} />
           </Route>
 
-          <ProtectedRoute path='/dashboard/:userid' exact>
+          <ProtectedRoute path='/dashboard/:userid'>
             <Dashboard />
           </ProtectedRoute>
 

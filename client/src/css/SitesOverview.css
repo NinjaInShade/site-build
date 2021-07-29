@@ -1,7 +1,7 @@
 .sites-overview {
-  width: 100%;
-  min-height: calc(100vh - 72px);
   background: #f9fafc;
+  min-height: calc(100vh - 72px);
+  width: 100%;
 }
 
 .sites-overview h3,
@@ -9,14 +9,16 @@
   font-weight: normal;
 }
 
-.sites-overview h3 {
+.sites-overview-email {
   color: #828797;
-  font-size: 1.2rem;
+  font-size: var(--strong);
+  font-weight: 500;
 }
 
-.sites-overview h2 {
-  color: #324065;
-  font-size: 2.5rem;
+.sites-overview-username {
+  color: var(--dark);
+  font-size: var(--h3);
+  font-weight: 700;
   margin-bottom: 40px;
 }
 
