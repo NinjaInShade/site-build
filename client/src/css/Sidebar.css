@@ -3,38 +3,25 @@
   padding: 20px;
 }
 
-.sidebar header {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  margin-bottom: 40px;
-  cursor: pointer;
-}
-
-.sidebar header h2 {
-  margin-left: 15px;
-  font-weight: 500;
-  font-size: 1.6rem;
-}
-
 .sidebar h3 {
-  font-size: 1.4rem;
-  font-weight: 500;
-  color: #00ceaf;
+  color: var(--light);
+  font-size: var(--strong);
+  font-weight: 600;
   margin-bottom: 15px;
 }
 
 .sidebar ul {
-  margin-bottom: 30px;
+  margin: 50px 0 30px 0;
 }
 
 .sidebar li {
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  cursor: pointer;
+  border-radius: 12px;
   margin: 10px 0;
   padding: 10px;
-  cursor: pointer;
 }
 
 .sidebar button {
@@ -43,7 +30,7 @@
 }
 
 .sidebar li:hover {
-  background: #2f3c5f;
+  background: var(--primary);
 }
 
 .sidebar li:hover p {
@@ -55,14 +42,14 @@
 }
 
 .sidebar li p {
-  color: #828797;
-  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: var(--p);
 }
 
 .sidebar ul svg {
+  color: rgba(255, 255, 255, 0.5);
   font-size: 24px;
   width: 24px;
-  color: #828797;
   margin-right: 15px;
 }
 
@@ -72,7 +59,7 @@
 }
 
 .sidebar-active li {
-  background: #2f3c5f;
+  background: var(--primary);
 }
 
 .sidebar-closed {

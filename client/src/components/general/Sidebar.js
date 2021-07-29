@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { NavLink, useHistory } from 'react-router-dom';
-import Logo from '../../resources/BrandLogo.svg';
 import { useAuth } from '../../other/AuthContext';
 import '../../css/Sidebar.css';
 
@@ -26,11 +25,6 @@ export default function Sidebar({ sites, openState, user }) {
 
   return (
     <div className='sidebar'>
-      <header>
-        <img src={Logo} alt='Brand logo' />
-        <h2>Site builder</h2>
-      </header>
-
       <ul>
         <h3>Control Panel</h3>
         <NavLink to={`/controlpanel/${user.uid}`} activeClassName='sidebar-active' exact>
