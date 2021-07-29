@@ -54,10 +54,7 @@ export default function Dashboard() {
   const { currentUser } = useAuth();
   let { path } = useRouteMatch();
 
-  console.log(currentUser.email, currentUser.uid);
-
   useEffect(() => {
-    // console.log(`Send fetch request to get data for user #${currentUser.uid} sites`);
     console.log(
       'Save this data to the sites state and send it down to any component that needs it, like siteDashboard.'
     );

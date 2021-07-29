@@ -1,5 +1,5 @@
 .sidebar {
-  background: #324065;
+  background: var(--primary-dark);
   padding: 20px;
 }
 

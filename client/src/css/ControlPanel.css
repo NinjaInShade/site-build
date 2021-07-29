@@ -12,8 +12,8 @@
 }
 
 .ControlPanel section > div:first-child {
+  background: var(--primary-dark);
   width: 100%;
-  background: #324065;
   padding: 20px 50px;
 }
 
