@@ -1,39 +1,31 @@
 .ControlPanel {
-  width: 100%;
-  min-height: 100vh;
   display: flex;
-  max-width: none !important;
   overflow-x: hidden;
+  min-height: 100vh;
 }
 
 .ControlPanel section {
   width: 100%;
-  min-height: 100vh;
 }
 
 .ControlPanel section > div:first-child {
   background: var(--primary-dark);
-  width: 100%;
   padding: 20px 50px;
 }
 
-.ControlPanel section > *:last-child {
-  padding: 20px 50px;
+.ControlPanel section > div:last-child {
+  padding: 30px 50px;
 }
 
-.ControlPanel section > div button {
-  background: none;
-  cursor: pointer;
-}
-
-.ControlPanel section > div svg {
+.hamburger {
   color: #fff;
   font-size: 2rem;
 }
 
 @media (max-width: 600px) {
   .ControlPanel section > div:first-child,
-  .ControlPanel section > *:last-child {
-    padding: 20px;
+  .ControlPanel section > div:last-child {
+    padding-left: 30px;
+    padding-right: 30px;
   }
 }

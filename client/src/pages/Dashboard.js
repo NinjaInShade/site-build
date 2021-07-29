@@ -66,7 +66,7 @@ export default function Dashboard() {
       <section>
         <div>
           <button onClick={() => setOpen(!open)}>
-            <i className='fas fa-bars'></i>
+            <i className='fas fa-bars hamburger'></i>
           </button>
         </div>
         <Switch>
