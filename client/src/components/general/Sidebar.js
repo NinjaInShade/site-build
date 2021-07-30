@@ -36,7 +36,7 @@ export default function Sidebar({ sites, openState, user }) {
         {sites &&
           sites.map((site) => {
             return (
-              <NavLink to={`/controlpanel/${user.uid}/site/${site.id}`} activeClassName='sidebar-active' key={site.id}>
+              <NavLink to={`/dashboard/${user.uid}/site/${site.id}`} activeClassName='sidebar-active' key={site.id}>
                 <li>
                   <span className='iconify' data-inline='false' data-icon='ic:baseline-content-copy'></span>
                   <p>{site.title}</p>
