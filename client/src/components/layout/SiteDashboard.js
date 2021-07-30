@@ -1,14 +1,7 @@
-// Libraries
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-
-// CSS
 import '../../css/SiteDashboard.css';
-
-// Components
 import Accordion from '../general/Accordion';
-
-// Other
 import { dummy_topic_data } from '../../other/dummy_data';
 
 export default function SiteDashboard({ user, sites }) {
