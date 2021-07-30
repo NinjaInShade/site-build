@@ -27,7 +27,7 @@ export default function Sidebar({ sites, openState, user }) {
     <div className='sidebar'>
       <ul>
         <h3>Control Panel</h3>
-        <NavLink to={`/controlpanel/${user.uid}`} activeClassName='sidebar-active' exact>
+        <NavLink to={`/dashboard/${user.uid}`} activeClassName='sidebar-active' exact>
           <li>
             <span className='iconify' data-inline='false' data-icon='fa-solid:hammer'></span>
             <p>Sites overview</p>
